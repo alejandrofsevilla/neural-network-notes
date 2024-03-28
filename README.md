@@ -9,6 +9,7 @@ $N_l$ *= number of neurons in layer l*\
 $w_{n_{l-1}n_l}$ *= weight between neurons* $n_{l-1}$ *and* $n_l$\
 $z_{n_l}$ *= intermediate quantity of neuron* $n_l$\
 $y_{n_l}$ *= output of neuron* $n_l$\
+$\hat y_{n_L}$ *= training sample output for neuron* $n_L$\
 $σ_l$ *= activation function at layer l {Step, Linear, ReLU, Sigmoid, Tanh...}*\
 $C$ *= cost function {MSE, SSE, WSE, NSE...}*\
 $O$ *= optimization function {Gradient Descend, ADAM, Quasi Newton Method...}*\
