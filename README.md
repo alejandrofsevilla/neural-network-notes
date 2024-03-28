@@ -26,6 +26,16 @@ $$ \begin{flalign} &
 O = f\big(\frac {\partial C}{\partial {w_{n_{l-1}n_l}}}\big)
 & \end{flalign} $$
 
+## Chain Rule:
+
+$$ \begin{flalign} &
+\frac {\partial C}{\partial {w_{n_{l-1}n_l}}} 
+= \frac{\partial C}{\partial z_{n_l}} \frac{\partial z_{n_l}}{\partial {w_{n_{l-1}n_l}}}
+= \frac{\partial C}{\partial z_{n_l}} y_{n_{l-1}}
+= \frac{\partial C}{\partial y_{n_l}} \frac{\partial y_{n_l}}{\partial z_{n_l}} y_{n_{l-1}}
+= \dot{C}\big(y_{n_l}\big) \dotσ\big(z_{n_l}\big) y_{n_{l-1}}
+& \end{flalign}$$
+
 ## Optimization Methods:
 ### MSE (Mean Squared Error):
 
@@ -36,14 +46,6 @@ O_{(i)} = \big(\frac{\partial C}{\partial {w_{n_{l-1}n_l}}}\big)_{(i)}
 ### ADAM (Adaptive Moment Estimation):
 ...
 
-## Chain Rule:
-
-$$ \begin{flalign} &
-\frac {\partial C}{\partial {w_{n_{l-1}n_l}}} 
-= \frac{\partial C}{\partial z_{n_l}} \frac{\partial z_{n_l}}{\partial {w_{n_{l-1}n_l}}}
-= \frac{\partial C}{\partial z_{n_l}} y_{n_{l-1}}
-= \frac{\partial C}{\partial y_{n_l}} \frac{\partial y_{n_l}}{\partial z_{n_l}} y_{n_{l-1}}
-& \end{flalign}$$
 
 ## Neuron Equations:
 ### Neuron Intermediate Quantity:
