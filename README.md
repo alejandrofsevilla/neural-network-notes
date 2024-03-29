@@ -16,7 +16,7 @@ $\hat y_{n_L}$ *= training sample output for a neuron in the last layer* $n_L$\
 $σ_l$ *= activation function at layer l {Step, Linear, ReLU, Sigmoid, Tanh...}*\
 $C$ *= cost function {MSE, SSE, WSE, NSE...}*\
 $O$ *= optimization function {Gradient Descend, ADAM, Quasi Newton Method...}*\
-$δ_{is{n_l}}$ *= error of neuron* $n_l$ *during iteration i and sample s*\
+$δ_{n_l}$ *= error of neuron*\
 $α$ *= learning rate*
 
 ## Problem:
