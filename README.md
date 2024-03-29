@@ -1,7 +1,9 @@
-# Deep Learning Notes.
+# Neural Network Notes
 ## Naming convention:
 *i = iteration*\
+*I = number of iterations*\
 *s = sample*\
+*S = number of samples*\
 *l = layer*\
 *L = number of layers*\
 $n_l$ *= neuron at layer l*\
@@ -42,7 +44,7 @@ $$ \begin{flalign} &
 ### MSE (Mean Squared Error):
 
 $$ \begin{flalign} &
-O_{(i)} = \big(\frac{\partial C}{\partial {w_{n_{l-1}n_l}}}\big)_{(i)}
+MSE = \dfrac{1}{2S}\sum_{s = 1}^S\big(y_{n_L} - \hat y_{n_L}\big)^2
 & \end{flalign} $$
 
 ### ADAM (Adaptive Moment Estimation):
