@@ -69,6 +69,8 @@ $$ \begin{flalign} &
 \dot C_{n_l} = \sum_{n_{l+1} = 1}^{N_{l+1}} w_{n_{l}n_{l+1}} \cdot \dot C_{n_{l+1}} 
 & \end{flalign}$$
 
+## Optimization Function Examples:
+// TODO: add examples
 
 ## Cost Function Examples:
 ### Mean Squared Error:
@@ -90,8 +92,7 @@ $$ \begin{flalign} &
 \dot{C} = \dfrac{1}{S}\sum_{s = 1}^S \frac{y_{n_L} - \hat y_{n_L}}{(1-y_{n_L}) \cdot y_{n_L}}
 & \end{flalign} $$
 
-...
-
+// TODO: more examples
 
 ## Activation Function Examples:
 ### Linear:
@@ -116,3 +117,5 @@ $\dot y_{n_l} = y_{n_l} \cdot (1-y_{n_l})$
 ### Tanh (Hyperbolic Tangent):
 $y_{n_l} = \frac{e^{z_{n_l}} - e^{-z_{n_l}}}{e^{z_{n_l}} + e^{-z_{n_l}}}$\
 $\dot y_{n_l} = 1 - y_{n_l}^{2}$
+
+// TODO: more examples
