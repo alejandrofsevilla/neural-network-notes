@@ -7,6 +7,7 @@
 $n_l$ *= neuron at layer l*\
 $N_l$ *= number of neurons in layer l*\
 $w_{n_{l-1}n_l}$ *= weight between neurons* $n_{l-1}$ *and* $n_l$\
+$b_{n_l}$ *= bias at neuron* $n_l$\
 $z_{n_l}$ *= intermediate quantity of neuron* $n_l$\
 $y_{n_l}$ *= output of neuron* $n_l$\
 $\hat y_{n_L}$ *= training sample output for a neuron in the last layer* $n_L$\
@@ -21,7 +22,7 @@ $$ \begin{flalign} &
 w_{{n_{l-1}n_l}{(i+1)}} = w_{{n_{l-1}n_l}{(i)}} - α * O_{(i)}
 & \end{flalign} $$
 
-where $O$ is a function of the derivatives of the Cost Function with respect to the corresponding weight:
+where $O$ is a function of the derivative of the Cost Function with respect to the corresponding weight:
 
 $$ \begin{flalign} &
 O = f\big(\frac {\partial C}{\partial {w_{n_{l-1}n_l}}}\big)
