@@ -58,7 +58,7 @@ where:
 $\dot C_{n_l} = f\big(y_{n_l}, \hat y_{n_l}\big)$ and $\dot σ_{n_l} = f\big(z_{n_l}\big)$.
 
 ## Backpropagation
-In order to compute the derivatives of the cost function $\dot C_{n_l} \big(y_{n_l}, \hat y_{n_l}\big) $, we would need an estimation of the target output for each neuron $\hat y_{n_l}$ , but in our training data, we only have a value of $\hat y_{n_l}$ at the last layer $l = L$. Instead, for all layers $l < L$ , we compute the derivatives of the cost function in previous layers, as a weighted sum of the derivatives in the next layer:
+In order to compute the derivatives of the cost function $\dot C_{n_l} \big(y_{n_l}, \hat y_{n_l}\big) $, we would need an estimation of the target output for each neuron $\hat y_{n_l}$ , but in our training data, we only have a value of $\hat y_{n_l}$ at the last layer $l = L$. Instead, for all layers where $l < L$ , we compute the derivatives of the cost function as a weighted sum of the derivatives in the next layer:
 
 $$ \begin{flalign} &
 \dot C_{n_l} = \sum_{n_{l+1} = 1}^{N_{l+1}} w_{n_{l}n_{l+1}} \cdot \dot C_{n_{l+1}} 
