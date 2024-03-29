@@ -24,7 +24,7 @@ $$ \begin{flalign} &
 w_{{n_{l-1}n_l}{(i+1)}} = w_{{n_{l-1}n_l}{(i)}} - α * O_{(i)}
 & \end{flalign} $$
 
-where $O$ is a function of the derivative of the Cost Function with respect to the corresponding weight:
+where $O$ is a function of the derivative of the cost function with respect to the corresponding weight:
 
 $$ \begin{flalign} &
 O = f\big(\frac {\partial C}{\partial {w_{n_{l-1}n_l}}}\big)
@@ -40,11 +40,17 @@ $$ \begin{flalign} &
 = \dot{C}\big(y_{n_l}\big) \dotσ\big(z_{n_l}\big) y_{n_{l-1}}
 & \end{flalign}$$
 
+Therefore, we need the derivatives of the cost and activation functions, $\dot{C}$ and $\dotσ$.
+
 ## Optimization Methods:
 ### MSE (Mean Squared Error):
 
 $$ \begin{flalign} &
 MSE = \dfrac{1}{2S}\sum_{s = 1}^S\big(y_{n_L} - \hat y_{n_L}\big)^2
+& \end{flalign} $$
+
+$$ \begin{flalign} &
+\dot{MSE} = \dfrac{1}{S}\sum_{s = 1}^Sy_{n_L} - \hat y_{n_L}
 & \end{flalign} $$
 
 ### ADAM (Adaptive Moment Estimation):
@@ -58,6 +64,8 @@ $$ \begin{flalign} & z_{n_l} = \sum_{n_{l-1}}^{N_{l-1}}(w_{n_{l-1}n_l} * y_{n_{l
 $$ \begin{flalign} & y_{n_l} = σ_l\big(z_{n_l}\big) & \end{flalign}$$
 ### Neuron Error:
 $$\begin{flalign} & \delta_{n_l} = \frac{\partial C}{\partial z_{n_l}} & \end{flalign} $$
+### Neuron Bias:
+We add an extra constant parameter $b_{n_l}=1$ to the neuron input vector and a corresponding weight $w_{{n_l}b}$ that will be adjusted with the others.
 
 ```math
 SSE = \sum_{i = 1}^N\big(y_i - \hat y_i\big)^2
