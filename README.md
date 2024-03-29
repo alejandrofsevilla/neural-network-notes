@@ -56,22 +56,26 @@ $$ \begin{flalign} &
 ## Activation Functions:
 ### Linear:
 $y_{n_l} = z_{n_l}$\
-$\hat y_{n_l} = 1$
+$\dot y_{n_l} = 1$
 
-### ReLU:
+### ReLU (Rectified Linear Unit):
 $$ \begin{flalign} &
 \begin{split}y_{n_l} = \begin{Bmatrix} z_{n_l} & z_{n_l} > 0 \\
  0 & z_{n_l} <= 0 \end{Bmatrix}\end{split}
 & \end{flalign} $$
 
 $$ \begin{flalign} &
-\begin{split}\hat y_{n_l} = \begin{Bmatrix} 1 & z_{n_l} > 0 \\
+\begin{split}\dot y_{n_l} = \begin{Bmatrix} 1 & z_{n_l} > 0 \\
  0 & z_{n_l} <= 0 \end{Bmatrix}\end{split}
 & \end{flalign} $$
 
 ### Sigmoid:
 $y_{n_l} = \frac{1} {1 + e^{-z_{n_l}}}$\
-$\hat y_{n_l} = y_{n_l} \cdot (1-y_{n_l})$
+$\dot y_{n_l} = y_{n_l} \cdot (1-y_{n_l})$
+
+### Tanh (Hyperbolic Tangent):
+$y_{n_l} = \frac{e^{z_{n_l}} - e^{-z_{n_l}}}{e^{z_{n_l}} + e^{-z_{n_l}}}$\
+$\dot y_{n_l} = 1 - y_{n_l}^{2}$
 
 ## Neuron Equations:
 ### Neuron Intermediate Quantity:
