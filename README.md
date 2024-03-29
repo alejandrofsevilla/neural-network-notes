@@ -19,6 +19,19 @@ $O$ *= optimization function {Gradient Descend, ADAM, Quasi Newton Method...}*\
 $δ_{is{n_l}}$ *= error of neuron* $n_l$ *during iteration i and sample s*\
 $α$ *= learning rate*
 
+## Problem:
+We need to optimize all values $w_{n_{l-1}n_l}$ that minimizes a given cost function $C$.
+
+## Neuron Equations:
+### Neuron Intermediate Quantity:
+$$ \begin{flalign} & z_{n_l} = \sum_{n_{l-1}}^{N_{l-1}}(w_{n_{l-1}n_l} \cdot y_{n_{l-1}}) & \end{flalign}$$
+### Neuron Output:
+$$ \begin{flalign} & y_{n_l} = σ_l\big(z_{n_l}\big) & \end{flalign}$$
+### Neuron Error:
+$$\begin{flalign} & \delta_{n_l} = \frac{\partial C}{\partial z_{n_l}} & \end{flalign} $$
+### Neuron Bias:
+We add an extra constant parameter $b_{n_l}=1$ to the neuron input vector and a corresponding weight $w_{{n_l}b}$ that will be adjusted with the others.
+
 ## Optimization Equations:
 $$ \begin{flalign} &
 w_{{n_{l-1}n_l}{(i+1)}} = w_{{n_{l-1}n_l}{(i)}} - α \cdot O_{(i)}
@@ -43,15 +56,27 @@ $$ \begin{flalign} &
 Therefore, we need the derivatives of the cost and activation functions, $\dot{C}$ and $\dotσ$.
 
 ## Cost Functions:
-### MSE (Mean Squared Error):
+### Mean Squared Error:
 
 $$ \begin{flalign} &
-MSE = \dfrac{1}{2S}\sum_{s = 1}^S\big(y_{n_L} - \hat y_{n_L}\big)^2
+C = \dfrac{1}{2S}\sum_{s = 1}^S \big(y_{n_L} - \hat y_{n_L}\big)^2
 & \end{flalign} $$
 
 $$ \begin{flalign} &
-\dot{MSE} = \dfrac{1}{S}\sum_{s = 1}^Sy_{n_L} - \hat y_{n_L}
+\dot{C} = \dfrac{1}{S}\sum_{s = 1}^S \big(y_{n_L} - \hat y_{n_L}\big)
 & \end{flalign} $$
+
+### Mean Binary Cross Cost
+$$ \begin{flalign} &
+C = -\sum_{s = 1}^S \big({\hat y_{n_L}} \text{ ln } y_{n_L} + (1 - {\hat y_{n_L}}) \cdot \text{ ln }(1-y_{n_L})\big)
+& \end{flalign} $$
+
+$$ \begin{flalign} &
+\dot{C} = \dfrac{1}{S}\sum_{s = 1}^S \frac{y_{n_L} - \hat y_{n_L}}{(1-y_{n_L}) \cdot y_{n_L}}
+& \end{flalign} $$
+
+...
+
 
 ## Activation Functions:
 ### Linear:
@@ -77,13 +102,5 @@ $\dot y_{n_l} = y_{n_l} \cdot (1-y_{n_l})$
 $y_{n_l} = \frac{e^{z_{n_l}} - e^{-z_{n_l}}}{e^{z_{n_l}} + e^{-z_{n_l}}}$\
 $\dot y_{n_l} = 1 - y_{n_l}^{2}$
 
-## Neuron Equations:
-### Neuron Intermediate Quantity:
-$$ \begin{flalign} & z_{n_l} = \sum_{n_{l-1}}^{N_{l-1}}(w_{n_{l-1}n_l} \cdot y_{n_{l-1}}) & \end{flalign}$$
-### Neuron Output:
-$$ \begin{flalign} & y_{n_l} = σ_l\big(z_{n_l}\big) & \end{flalign}$$
-### Neuron Error:
-$$\begin{flalign} & \delta_{n_l} = \frac{\partial C}{\partial z_{n_l}} & \end{flalign} $$
-### Neuron Bias:
-We add an extra constant parameter $b_{n_l}=1$ to the neuron input vector and a corresponding weight $w_{{n_l}b}$ that will be adjusted with the others.
+...
 
