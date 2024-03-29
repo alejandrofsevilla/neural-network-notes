@@ -30,7 +30,7 @@ $$ \begin{flalign} & y_{n_l} = σ_l\big(z_{n_l}\big) & \end{flalign}$$
 ### Neuron Error:
 $$\begin{flalign} & \delta_{n_l} = \frac{\partial C}{\partial z_{n_l}} & \end{flalign} $$
 ### Neuron Bias:
-We add an extra constant parameter $b_{n_l}=1$ to the neuron input vector and a corresponding weight $w_{{n_l}b}$ that will be adjusted together with the others.
+We add an constant parameter $b_{n_l}=1$ to the neuron input vector and a corresponding weight $w_{{n_l}b}$ that will be adjusted together with the others during the optimization algorithm.
 
 ## Optimization Equations:
 $$ \begin{flalign} &
