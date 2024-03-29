@@ -20,7 +20,7 @@ $δ_{n_l}$ *= error at neuron n_l*\
 $α$ *= learning rate*
 
 ## Problem:
-We need to find all values $w_{n_{l-1}n_l}$ that minimizes cost function $C$, that quantifies the precision of our network as a function approximator.
+We need to find all values $w_{n_{l-1}n_l}$ that minimizes the cost function $C$, that quantifies the precision of our network as a function approximator.
 
 ## Neuron Equations:
 ### Neuron Intermediate Quantity:
