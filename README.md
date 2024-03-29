@@ -1,7 +1,6 @@
 # Neural Network Notes
-![NNDiagr](https://github.com/alejandrofsevilla/neural_network_notes/assets/110661590/c2ca69d3-cd6b-4388-9e63-1a7fc846695a)
 
-## Naming convention:
+## Definitions:
 *i = iteration*\
 *I = number of iterations*\
 *s = sample*\
@@ -21,10 +20,12 @@ $O$ *= optimization function {Gradient Descend, ADAM, Quasi Newton Method...}*\
 $δ_{n_l}$ *= error at neuron n_l*\
 $α$ *= learning rate*
 
-
+<p align="center">
+  <img src="https://github.com/alejandrofsevilla/neural_network_notes/assets/110661590/2522d49c-d13d-4544-b7bb-59072d4dabf4" />
+</p>
 
 ## Problem:
-We need to find all values $w_{n_{l-1}n_l}$ that minimizes the cost function $C$, that quantifies the precision of our network as a function approximator.
+We need to find all values $w_{n_{l-1}n_l}$ that minimizes the cost function $C$.
 
 ## Neuron Equations:
 ### Neuron Intermediate Quantity:
