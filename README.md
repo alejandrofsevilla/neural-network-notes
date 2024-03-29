@@ -36,7 +36,7 @@ A constant variable $x_b=1$ is added to the neuron input vector, together with a
 
 ## Optimization Equations:
 $$ \begin{flalign} &
-w_{{n_{l-1}n_l}{(i+1)}} = w_{{n_{l-1}n_l}{(i)}} - α \cdot O_{(i)}
+w_{{n_{l-1}n_l}} = w_{{n_{l-1}n_l}} - α \cdot O_{l-1}n_l}
 & \end{flalign} $$
 
 where $O$ is a function of the derivative of the cost function with respect to the corresponding weight:
