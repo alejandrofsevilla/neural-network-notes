@@ -53,7 +53,11 @@ $$ \begin{flalign} &
 = \dot{C}\big(y_{n_l}, \hat y_{n_L}\big) \cdot \dotσ\big(z_{n_l}\big) \cdot y_{n_{l-1}}
 & \end{flalign}$$
 
-Therefore, we need the derivatives of the cost and activation functions, $\dot{C}$ and $\dotσ$.
+Therefore, we need the derivatives of the cost and activation functions, $\dot{C}\big(y_{n_l}, \hat y_{n_L}\big)$ and $\dotσ\big(z_{n_l}\big)$.
+
+## Backpropagation
+We only have a value of the target output at the last layer, $\hat y_{n_L}$. In order to compute the derivatives of the cost function in previous layers $\dot{C_{n_l}}$, we write the derivatives of the cost function of a neuron in terms of the derivatives of the cost function in the next layer:
+
 
 ## Cost Function Examples:
 ### Mean Squared Error:
