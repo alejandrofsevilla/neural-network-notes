@@ -1,4 +1,6 @@
 # Neural Network Notes
+![NNDiagr](https://github.com/alejandrofsevilla/neural_network_notes/assets/110661590/c2ca69d3-cd6b-4388-9e63-1a7fc846695a)
+
 ## Naming convention:
 *i = iteration*\
 *I = number of iterations*\
@@ -18,6 +20,8 @@ $C$ *= cost function {MSE, SSE, WSE, NSE...}*\
 $O$ *= optimization function {Gradient Descend, ADAM, Quasi Newton Method...}*\
 $δ_{n_l}$ *= error at neuron n_l*\
 $α$ *= learning rate*
+
+
 
 ## Problem:
 We need to find all values $w_{n_{l-1}n_l}$ that minimizes the cost function $C$, that quantifies the precision of our network as a function approximator.
