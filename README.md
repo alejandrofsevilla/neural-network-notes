@@ -116,3 +116,6 @@ $y_{n_l} = \frac{e^{z_{n_l}} - e^{-z_{n_l}}}{e^{z_{n_l}} + e^{-z_{n_l}}}$\
 $\dot y_{n_l} = 1 - y_{n_l}^{2}$
 
 // TODO: more examples
+
+## References:
+// TODO: add links
