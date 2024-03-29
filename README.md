@@ -21,7 +21,7 @@ $α$ *= learning rate*
 
 ## Optimization Equations:
 $$ \begin{flalign} &
-w_{{n_{l-1}n_l}{(i+1)}} = w_{{n_{l-1}n_l}{(i)}} - α * O_{(i)}
+w_{{n_{l-1}n_l}{(i+1)}} = w_{{n_{l-1}n_l}{(i)}} - α \cdot O_{(i)}
 & \end{flalign} $$
 
 where $O$ is a function of the derivative of the cost function with respect to the corresponding weight:
@@ -34,10 +34,10 @@ O = f\big(\frac {\partial C}{\partial {w_{n_{l-1}n_l}}}\big)
 
 $$ \begin{flalign} &
 \frac {\partial C}{\partial {w_{n_{l-1}n_l}}} 
-= \frac{\partial C}{\partial z_{n_l}} \frac{\partial z_{n_l}}{\partial {w_{n_{l-1}n_l}}}
-= \frac{\partial C}{\partial z_{n_l}} y_{n_{l-1}}
-= \frac{\partial C}{\partial y_{n_l}} \frac{\partial y_{n_l}}{\partial z_{n_l}} y_{n_{l-1}}
-= \dot{C}\big(y_{n_l}\big) \dotσ\big(z_{n_l}\big) y_{n_{l-1}}
+= \frac{\partial C}{\partial z_{n_l}} \cdot \frac{\partial z_{n_l}}{\partial {w_{n_{l-1}n_l}}}
+= \frac{\partial C}{\partial z_{n_l}} \cdot y_{n_{l-1}}
+= \frac{\partial C}{\partial y_{n_l}} \cdot \frac{\partial y_{n_l}}{\partial z_{n_l}} \cdot y_{n_{l-1}}
+= \dot{C}\big(y_{n_l}\big) \cdot \dotσ\big(z_{n_l}\big) \cdot y_{n_{l-1}}
 & \end{flalign}$$
 
 Therefore, we need the derivatives of the cost and activation functions, $\dot{C}$ and $\dotσ$.
@@ -69,9 +69,13 @@ $$ \begin{flalign} &
  0 & z_{n_l} <= 0 \end{Bmatrix}\end{split}
 & \end{flalign} $$
 
+### Sigmoid:
+$y_{n_l} = \frac{1} {1 + e^{-z_{n_l}}}$\
+$\hat y_{n_l} = y_{n_l} \cdot (1-y_{n_l})$
+
 ## Neuron Equations:
 ### Neuron Intermediate Quantity:
-$$ \begin{flalign} & z_{n_l} = \sum_{n_{l-1}}^{N_{l-1}}(w_{n_{l-1}n_l} * y_{n_{l-1}}) & \end{flalign}$$
+$$ \begin{flalign} & z_{n_l} = \sum_{n_{l-1}}^{N_{l-1}}(w_{n_{l-1}n_l} \cdot y_{n_{l-1}}) & \end{flalign}$$
 ### Neuron Output:
 $$ \begin{flalign} & y_{n_l} = σ_l\big(z_{n_l}\big) & \end{flalign}$$
 ### Neuron Error:
