@@ -1,4 +1,4 @@
-# Neural Network Cheatsheet
+# Neural Network Notes
 
 ## Definitions:
 *i = iteration*\
@@ -23,9 +23,6 @@ $α$ *= learning rate*
 <p align="center">
   <img src="https://github.com/alejandrofsevilla/neural_network_notes/assets/110661590/2522d49c-d13d-4544-b7bb-59072d4dabf4" />
 </p>
-
-## Problem:
-We need to find all values $w_{n_{l-1}n_l}$ that minimizes the cost function $C$.
 
 ## Neuron Equations:
 ### Neuron Intermediate Quantity:
