@@ -50,7 +50,7 @@ $$ \begin{flalign} &
 = \frac{\partial C}{\partial z_{n_l}} \cdot \frac{\partial z_{n_l}}{\partial {w_{n_{l-1}n_l}}}
 = \frac{\partial C}{\partial z_{n_l}} \cdot y_{n_{l-1}}
 = \frac{\partial C}{\partial y_{n_l}} \cdot \frac{\partial y_{n_l}}{\partial z_{n_l}} \cdot y_{n_{l-1}}
-= \dot{C}\big(y_{n_l}\big) \cdot \dotσ\big(z_{n_l}\big) \cdot y_{n_{l-1}}
+= \dot{C}\big(y_{n_l}, \hat y_{n_L}\big) \cdot \dotσ\big(z_{n_l}\big) \cdot y_{n_{l-1}}
 & \end{flalign}$$
 
 Therefore, we need the derivatives of the cost and activation functions, $\dot{C}$ and $\dotσ$.
