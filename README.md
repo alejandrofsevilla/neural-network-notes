@@ -16,11 +16,11 @@ $\hat y_{n_L}$ *= training sample output for a neuron in the last layer* $n_L$\
 $σ_l$ *= activation function at layer l {Step, Linear, ReLU, Sigmoid, Tanh...}*\
 $C$ *= cost function {MSE, SSE, WSE, NSE...}*\
 $O$ *= optimization function {Gradient Descend, ADAM, Quasi Newton Method...}*\
-$δ_{n_l}$ *= error of neuron*\
+$δ_{n_l}$ *= error at neuron n_l*\
 $α$ *= learning rate*
 
 ## Problem:
-We need to optimize all values $w_{n_{l-1}n_l}$ that minimizes a given cost function $C$.
+We need to optimize all values $w_{n_{l-1}n_l}$ that minimizes cost function $C$.
 
 ## Neuron Equations:
 ### Neuron Intermediate Quantity:
@@ -55,7 +55,7 @@ $$ \begin{flalign} &
 
 Therefore, we need the derivatives of the cost and activation functions, $\dot{C}$ and $\dotσ$.
 
-## Cost Functions:
+## Cost Function Examples:
 ### Mean Squared Error:
 
 $$ \begin{flalign} &
@@ -78,7 +78,7 @@ $$ \begin{flalign} &
 ...
 
 
-## Activation Functions:
+## Activation Function Examples:
 ### Linear:
 $y_{n_l} = z_{n_l}$\
 $\dot y_{n_l} = 1$
@@ -103,4 +103,3 @@ $y_{n_l} = \frac{e^{z_{n_l}} - e^{-z_{n_l}}}{e^{z_{n_l}} + e^{-z_{n_l}}}$\
 $\dot y_{n_l} = 1 - y_{n_l}^{2}$
 
 ...
-
