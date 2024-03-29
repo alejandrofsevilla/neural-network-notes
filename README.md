@@ -42,7 +42,7 @@ $$ \begin{flalign} &
 
 Therefore, we need the derivatives of the cost and activation functions, $\dot{C}$ and $\dotσ$.
 
-## Optimization Methods:
+## Cost Functions:
 ### MSE (Mean Squared Error):
 
 $$ \begin{flalign} &
@@ -53,9 +53,21 @@ $$ \begin{flalign} &
 \dot{MSE} = \dfrac{1}{S}\sum_{s = 1}^Sy_{n_L} - \hat y_{n_L}
 & \end{flalign} $$
 
-### ADAM (Adaptive Moment Estimation):
-...
+## Activation Functions:
+### Linear:
+$y_{n_l} = z_{n_l}$\
+$\hat y_{n_l} = 1$
 
+### ReLU:
+$$ \begin{flalign} &
+\begin{split}y_{n_l} = \begin{Bmatrix} z_{n_l} & z_{n_l} > 0 \\
+ 0 & z_{n_l} <= 0 \end{Bmatrix}\end{split}
+& \end{flalign} $$
+
+$$ \begin{flalign} &
+\begin{split}\hat y_{n_l} = \begin{Bmatrix} 1 & z_{n_l} > 0 \\
+ 0 & z_{n_l} <= 0 \end{Bmatrix}\end{split}
+& \end{flalign} $$
 
 ## Neuron Equations:
 ### Neuron Intermediate Quantity:
@@ -67,10 +79,3 @@ $$\begin{flalign} & \delta_{n_l} = \frac{\partial C}{\partial z_{n_l}} & \end{fl
 ### Neuron Bias:
 We add an extra constant parameter $b_{n_l}=1$ to the neuron input vector and a corresponding weight $w_{{n_l}b}$ that will be adjusted with the others.
 
-```math
-SSE = \sum_{i = 1}^N\big(y_i - \hat y_i\big)^2
-```
-```math
-Mean Squared Error:
-MSE = \dfrac{1}{N}\sum_{i = 1}^N\big(y_i - \hat y_i\big)^2
-```  
