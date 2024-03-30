@@ -26,7 +26,7 @@ $α$ *= learning rate*
 
 ## Neuron Equations:
 ### Neuron Intermediate Quantity:
-$$ \begin{flalign} & z_{n_l} = \sum_{n_{l-1}}^{N_{l-1}}(w_{n_{l-1}n_l} \cdot y_{n_{l-1}}) & \end{flalign}$$
+$$ \begin{flalign} & z_{n_l} = \sum_{n_{l-1}}^{N_{l-1}}(w_{n_{l-1}n_l} \cdot y_{n_{l-1}} + b_{n_l}) & \end{flalign}$$
 ### Neuron Output:
 $$ \begin{flalign} & y_{n_l} = A_{n_l}\big(z_{n_l}\big) & \end{flalign}$$
 ### Neuron Bias:
