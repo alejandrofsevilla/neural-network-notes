@@ -1,8 +1,8 @@
 # Neural Network Notes
 
 ## Definitions:
-*i = iteration*\
-*I = number of iterations*\
+*i = training iteration*\
+*I = number of training iterations*\
 *s = sample*\
 *S = number of samples*\
 *l = layer*\
