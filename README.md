@@ -89,7 +89,15 @@ $$ \begin{flalign} &
 
 // TODO: more examples
 
-## Activation Function Examples:
+## Activation Functions:
+### Binary Step:
+$$ \begin{flalign} &
+\begin{split}A_{n_l} = \begin{Bmatrix} 1 & z_{n_l} ≥ 0 \\
+ 0 & z_{n_l} < 0 \end{Bmatrix}\end{split}
+& \end{flalign} $$
+
+$\dot A_{n_l} = 0$
+
 ### Linear:
 $A_{n_l} = z_{n_l}$\
 $\dot A_{n_l} = 1$
@@ -97,12 +105,23 @@ $\dot A_{n_l} = 1$
 ### ReLU (Rectified Linear Unit):
 $$ \begin{flalign} &
 \begin{split}A_{n_l} = \begin{Bmatrix} z_{n_l} & z_{n_l} > 0 \\
- 0 & z_{n_l} <= 0 \end{Bmatrix}\end{split}
+ 0 & z_{n_l} ≤ 0 \end{Bmatrix}\end{split}
 & \end{flalign} $$
 
 $$ \begin{flalign} &
 \begin{split}\dot A_{n_l} = \begin{Bmatrix} 1 & z_{n_l} > 0 \\
- 0 & z_{n_l} <= 0 \end{Bmatrix}\end{split}
+ 0 & z_{n_l} ≤ 0 \end{Bmatrix}\end{split}
+& \end{flalign} $$
+
+### Leaky ReLU:
+$$ \begin{flalign} &
+\begin{split}A_{n_l} = \begin{Bmatrix} z_{n_l} & z_{n_l} > 0 \\
+ 0.01 \cdot z_{n_l} & z_{n_l} ≤ 0 \end{Bmatrix}\end{split}
+& \end{flalign} $$
+
+$$ \begin{flalign} &
+\begin{split}\dot A_{n_l} = \begin{Bmatrix} 1 & z_{n_l} > 0 \\
+ 0.01 & z_{n_l} ≤ 0 \end{Bmatrix}\end{split}
 & \end{flalign} $$
 
 ### Sigmoid:
@@ -116,4 +135,6 @@ $\dot A_{n_l} = 1 - \big({A_{n_l}(z_{n_l})}\big)^2$
 // TODO: more examples
 
 ## References:
-// TODO: add links
+[https://en.wikipedia.org/wiki/Activation_function#Table_of_activation_functions](https://en.wikipedia.org/wiki/Activation_function#Table_of_activation_functions)
+
+
