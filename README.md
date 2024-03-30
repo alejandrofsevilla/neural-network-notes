@@ -47,12 +47,16 @@ $$ \begin{flalign} &
 = \frac{\partial C}{\partial z_{n_l}} \cdot \frac{\partial z_{n_l}}{\partial {w_{n_{l-1}n_l}}}
 = \frac{\partial C}{\partial z_{n_l}} \cdot y_{n_{l-1}}
 = \frac{\partial C}{\partial y_{n_l}} \cdot \frac{\partial y_{n_l}}{\partial z_{n_l}} \cdot y_{n_{l-1}}
-= \dot C \cdot \dot A_{n_l} \cdot y_{n_{l-1}}
+= \dot C\big(y_{n_l}, \hat y_{n_l}\big) \cdot \dot A_{n_l}\big(z_{n_l}\big) \cdot y_{n_{l-1}}
 & \end{flalign}$$
 
-where:
-
-$\dot C = f\big(y_{n_l}, \hat y_{n_l}\big)$ and $\dot A_{n_l} = f\big(z_{n_l}\big)$.
+$$ \begin{flalign} &
+\frac {\partial C}{\partial {b_{n_l}}} 
+= \frac{\partial C}{\partial z_{n_l}}
+= \frac{\partial C}{\partial z_{n_l}}
+= \frac{\partial C}{\partial y_{n_l}} \cdot \frac{\partial y_{n_l}}{\partial z_{n_l}}
+= \dot C\big(y_{n_l}, \hat y_{n_l}\big) \cdot \dot A_{n_l}\big(z_{n_l}\big)
+& \end{flalign}$$
 
 ## Backpropagation
 In order to compute the derivatives of the cost function $\dot C_{n_l} \big(y_{n_l}, \hat y_{n_l}\big) $, we would need the value of the target output for each neuron $\hat y_{n_l}$ , but in our training data, we only have a value of $\hat y_{n_l}$ for the last layer, $l = L$. Instead, for all layers  $l < L$ , we compute the derivatives of the cost function as a weighted sum of the derivatives of the cost function in the next layer:
