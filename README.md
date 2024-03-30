@@ -1,4 +1,4 @@
-# Neural Network Notes
+# Neural Networks Cheatsheet
 
 ## Definitions:
 *i = training iteration*\
