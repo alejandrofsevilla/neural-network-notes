@@ -29,8 +29,6 @@ $α$ *= learning rate*
 $$ \begin{flalign} & z_{n_l} = \sum_{n_{l-1}}^{N_{l-1}}(w_{n_{l-1}n_l} \cdot y_{n_{l-1}}) & \end{flalign}$$
 ### Neuron Output:
 $$ \begin{flalign} & y_{n_l} = A_{n_l}\big(z_{n_l}\big) & \end{flalign}$$
-### Neuron Error:
-$$\begin{flalign} & \delta_{n_l} = \frac{\partial C}{\partial z_{n_l}} & \end{flalign} $$
 ### Neuron Bias:
 A constant variable $x_b=1$ is added to the neuron input vector, together with a corresponding weight $w_b$ so that $b_{n_l} = x_b \cdot w_{{n_l}b} = w_{{n_l}b}$.
 
@@ -42,28 +40,28 @@ w_{{n_{l-1}n_l}} = w_{{n_{l-1}n_l}} - α \cdot O
 where $O$ is a function of the derivative of the cost function with respect to the corresponding weight:
 
 $$ \begin{flalign} &
-O = f\big(\frac {\partial C_{n_l}}{\partial {w_{n_{l-1}n_l}}}\big)
+O = f\big(\frac {\partial C}{\partial {w_{n_{l-1}n_l}}}\big)
 & \end{flalign} $$
 
 ## Chain Rule:
 
 $$ \begin{flalign} &
-\frac {\partial C_{n_l}}{\partial {w_{n_{l-1}n_l}}} 
-= \frac{\partial C_{n_l}}{\partial z_{n_l}} \cdot \frac{\partial z_{n_l}}{\partial {w_{n_{l-1}n_l}}}
-= \frac{\partial C_{n_l}}{\partial z_{n_l}} \cdot y_{n_{l-1}}
-= \frac{\partial C_{n_l}}{\partial y_{n_l}} \cdot \frac{\partial y_{n_l}}{\partial z_{n_l}} \cdot y_{n_{l-1}}
-= \dot C_{n_l} \cdot \dot A_{n_l} \cdot y_{n_{l-1}}
+\frac {\partial C}{\partial {w_{n_{l-1}n_l}}} 
+= \frac{\partial C}{\partial z_{n_l}} \cdot \frac{\partial z_{n_l}}{\partial {w_{n_{l-1}n_l}}}
+= \frac{\partial C}{\partial z_{n_l}} \cdot y_{n_{l-1}}
+= \frac{\partial C}{\partial y_{n_l}} \cdot \frac{\partial y_{n_l}}{\partial z_{n_l}} \cdot y_{n_{l-1}}
+= \dot C \cdot \dot A_{n_l} \cdot y_{n_{l-1}}
 & \end{flalign}$$
 
 where:
 
-$\dot C_{n_l} = f\big(y_{n_l}, \hat y_{n_l}\big)$ and $\dot A_{n_l} = f\big(z_{n_l}\big)$.
+$\dot C = f\big(y_{n_l}, \hat y_{n_l}\big)$ and $\dot A_{n_l} = f\big(z_{n_l}\big)$.
 
 ## Backpropagation
-In order to compute the derivatives of the cost function $\dot C_{n_l} \big(y_{n_l}, \hat y_{n_l}\big) $, we would need the value of the target output for each neuron $\hat y_{n_l}$ , but in our training data, we only have a value of $\hat y_{n_l}$ at the last layer $l = L$. Instead, for all layers where $l < L$ , we compute the derivatives of the cost function as a weighted sum of the derivatives of the cost function in the next layer:
+In order to compute the derivatives of the cost function $\dot C_{n_l} \big(y_{n_l}, \hat y_{n_l}\big) $, we would need the value of the target output for each neuron $\hat y_{n_l}$ , but in our training data, we only have a value of $\hat y_{n_l}$ for the last layer, $l = L$. Instead, for all layers  $l < L$ , we compute the derivatives of the cost function as a weighted sum of the derivatives of the cost function in the next layer:
 
 $$ \begin{flalign} &
-\dot C_{n_l} = \sum_{n_{l+1} = 1}^{N_{l+1}} w_{n_{l}n_{l+1}} \cdot \dot C_{n_{l+1}} 
+\dot C \big( y_{n_l}, \hat y_{n_l} \big) = \sum_{n_{l+1}}^{N_{l+1}} w_{n_{l}n_{l+1}} \cdot \dot C \big( y_{n_{l+1}}, \hat y_{n_{l+1}} \big) 
 & \end{flalign}$$
 
 ## Optimization Function Examples:
