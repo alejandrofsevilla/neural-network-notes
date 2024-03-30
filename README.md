@@ -137,5 +137,5 @@ $\dot A_{n_l} = 1 - \big({A_{n_l}(z_{n_l})}\big)^2$
 
 ## References:
 [https://en.wikipedia.org/wiki/Activation_function#Table_of_activation_functions](https://en.wikipedia.org/wiki/Activation_function#Table_of_activation_functions)
-
+[http://neuralnetworksanddeeplearning.com/](http://neuralnetworksanddeeplearning.com/)
 
