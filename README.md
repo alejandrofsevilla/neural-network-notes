@@ -29,20 +29,15 @@ $α$ *= learning rate*
 $$ \begin{flalign} & z_{n_l} = \sum_{n_{l-1}}^{N_{l-1}}(w_{n_{l-1}n_l} \cdot y_{n_{l-1}} + b_{n_l}) & \end{flalign}$$
 ### Neuron Output:
 $$ \begin{flalign} & y_{n_l} = A_{n_l}\big(z_{n_l}\big) & \end{flalign}$$
-### Neuron Bias:
-A constant variable $x_b=1$ is added to the neuron input vector, together with a corresponding weight $w_b$, so that:\
-$b_{n_l} = x_b \cdot w_{{n_l}b} = w_{{n_l}b}$.
 
 ## Optimization Algorithm:
 
 $$ \begin{flalign} &
-(w_{n_{l-1}n_l})^{i+1} = (w_{n_{l-1}n_l})^i - α \cdot O
+(w_{n_{l-1}n_l})^{i+1} = (w_{n_{l-1}n_l})^i - α \cdot O\big(\frac {\partial C}{\partial {w_{n_{l-1}n_l}}}\big)
 & \end{flalign} $$
 
-where $O$ is a function of the derivative of the cost function with respect to the corresponding weight:
-
 $$ \begin{flalign} &
-O = f\big(\frac {\partial C}{\partial {w_{n_{l-1}n_l}}}\big)
+(b_{n_l})^{i+1} = (b_{n_l})^i - α \cdot O\big(\frac {\partial C}{\partial {b_{n_l}}}\big)
 & \end{flalign} $$
 
 ## Chain Rule:
