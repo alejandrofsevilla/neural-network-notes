@@ -42,6 +42,8 @@ $$ \begin{flalign} &
 & \end{flalign} $$
 
 ## Chain Rule:
+The chain rule allows to separate the derivatives described above into components.
+
 $$ \begin{flalign} &
 \frac {\partial C}{\partial {w_{n_{l-1}n_l}}} 
 = \frac{\partial C}{\partial z_{n_l}} \cdot \frac{\partial z_{n_l}}{\partial {w_{n_{l-1}n_l}}}
