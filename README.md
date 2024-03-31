@@ -54,6 +54,7 @@ O \big( \frac{\partial C}{\partial {w_{n_{l-1}n_l}}} \big) = \frac{\partial C}{\
 & \end{flalign}$$
 
 ## ADAM (Adaptive Moment Estimation):
+Network parameters are updated after every training samples batch, with an adapted value of the cost function derivatives average.
 
 $$ \begin{flalign} &
 O \big( \frac{\partial C}{\partial {w_{n_{l-1}n_l}}} \big) = \frac{m_t}{\sqrt{v_t}+\epsilon}
@@ -67,12 +68,12 @@ $$ \begin{flalign} &
 v_t = \beta_2 \cdot v_{t-1} + (1+\beta_2) \cdot \big( \frac{1}{S} \cdot \sum_{s}^S{\frac{\partial C}{\partial {w_{n_{l-1}n_l}}}} \big)
 & \end{flalign}$$
 
-Where:
+Where typically:
 
 $m_0$ *= 0* \
 $v_0$ *= 0* \
 $\epsilon$ *~10* \
-$\beta_1$ *~0.9*
+$\beta_1$ *~0.9* \
 $\beta_2$ *~0.999*
 
 ## Chain Rule:
