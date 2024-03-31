@@ -186,7 +186,16 @@ $\beta_1 = 0.9$ \
 $\beta_2 = 0.999$
 
 ### Regularization:
+Extra terms are added to the cost function in order to prevent over-fitting.
 
+#### L2:
+
+$$ \begin{flalign} &
+\Delta C = \frac{\lambda}{2n} \sum^W w^2
+& \end{flalign}$$
+
+$\lambda=$ *regularization rate* \
+$W=$  *total number of weights in the network* \
 
 ## References:
 https://en.wikipedia.org/wiki/Activation_function#Table_of_activation_functions \
