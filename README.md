@@ -70,11 +70,11 @@ v_t = \beta_2 \cdot v_{t-1} + (1+\beta_2) \cdot \big( \frac{1}{S} \cdot \sum_{s}
 
 Where typically:
 
-$m_0$ *= 0* \
-$v_0$ *= 0* \
-$\epsilon$ *~=* $10^{-8}$ \
-$\beta_1$ *= 0.9* \
-$\beta_2$ *= 0.999*
+$m_0 = 0$ \
+$v_0 = 0$ \
+$\epsilon = 10^{-8}$ \
+$\beta_1 = 0.9$ \
+$\beta_2 = 0.999$
 
 ## Chain Rule:
 The chain rule allows to separate the derivatives described above into components.
