@@ -24,9 +24,9 @@ $α$ *= learning rate*
 
 ## Neuron Equations:
 ### Neuron Intermediate Quantity:
-$$ \begin{flalign} & z = \sum_{n_{l-1}}^{N_{l-1}}(w_{n_{l-1}n_l} \cdot y_{n_{l-1}} + b) & \end{flalign}$$
+$$ \begin{flalign} & z_{n_l} = \sum_{n_{l-1}}^{N_{l-1}}(w_{n_{l-1}n_l} \cdot y_{n_{l-1}} + b) & \end{flalign}$$
 ### Neuron Output:
-$$ \begin{flalign} & y = A\big(z\big) & \end{flalign}$$
+$$ \begin{flalign} & y_{n_l} = A\big(z\big) & \end{flalign}$$
 
 ### Activation Functions:
 #### Binary Step:
