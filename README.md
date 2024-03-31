@@ -31,7 +31,7 @@ $$ \begin{flalign} & z_{n_l} = \sum_{n_{l-1}}^{N_{l-1}}(w_{n_{l-1}n_l} \cdot y_{
 $$ \begin{flalign} & y_{n_l} = A_{n_l}\big(z_{n_l}\big) & \end{flalign}$$
 
 ## Optimization Algorithm:
-In order to reduce the error of the network, weights and biases are updated after every training iteration through an optimization equation $O$, which is a function of the derivatives of the cost function $C$.
+In order to reduce the error of the network, weights and biases are updated after every training iteration through an optimization equation $O$, which is a function of the derivatives of the cost function $C$ with respect to the network parameters.
 
 $$ \begin{flalign} &
 (w_{n_{l-1}n_l})^{i+1} = (w_{n_{l-1}n_l})^i - α \cdot O\big(\frac {\partial C}{\partial {w_{n_{l-1}n_l}}}\big)^i
@@ -42,7 +42,6 @@ $$ \begin{flalign} &
 & \end{flalign} $$
 
 ## Chain Rule:
-
 $$ \begin{flalign} &
 \frac {\partial C}{\partial {w_{n_{l-1}n_l}}} 
 = \frac{\partial C}{\partial z_{n_l}} \cdot \frac{\partial z_{n_l}}{\partial {w_{n_{l-1}n_l}}}
@@ -60,7 +59,7 @@ $$ \begin{flalign} &
 & \end{flalign}$$
 
 ## Backpropagation
-In order to compute the derivatives of the cost function $\dot C_{n_l} \big(y_{n_l}, \hat y_{n_l}\big) $, we would need the value of the target output for each neuron $\hat y_{n_l}$ , but in our training data, we only have a value of $\hat y_{n_l}$ for the last layer, $l = L$. Instead, for all layers  $l < L$ , we compute the derivatives of the cost function as a weighted sum of the derivatives of the cost function in the next layer:
+In order to compute the derivatives $\dot C_{n_l} \big(y_{n_l}, \hat y_{n_l}\big) $, it would be required to have the target output for each neuron $\hat y_{n_l}$ , however a training data set only counts on the value or an estimation of $\hat y_{n_l}$ for the last layer, $l = L$. Instead, for all layers  $l < L$ , the derivatives of the cost function are computed as a weighted sum of the derivatives of the cost function in the next layer:
 
 $$ \begin{flalign} &
 \dot C \big( y_{n_l}, \hat y_{n_l} \big) = \sum_{n_{l+1}}^{N_{l+1}} w_{n_{l}n_{l+1}} \cdot \dot C \big( y_{n_{l+1}}, \hat y_{n_{l+1}} \big) 
