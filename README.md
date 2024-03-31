@@ -72,9 +72,9 @@ Where typically:
 
 $m_0$ *= 0* \
 $v_0$ *= 0* \
-$\epsilon$ *~10* \
-$\beta_1$ *~0.9* \
-$\beta_2$ *~0.999*
+$\epsilon$ *~=* $10^{-8}$ \
+$\beta_1$ *= 0.9* \
+$\beta_2$ *= 0.999*
 
 ## Chain Rule:
 The chain rule allows to separate the derivatives described above into components.
