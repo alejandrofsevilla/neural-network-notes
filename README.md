@@ -30,24 +30,14 @@ $$ \begin{flalign} & z = \sum_{n_{l-1}}^{N_{l-1}}(w_{n_{l-1}n_l} \cdot y_{n_{l-1
 $$ \begin{flalign} & y = A\big(z\big) & \end{flalign}$$
 
 ## Optimization Algorithm:
-In order to reduce the errors of the network, weights and biases are updated after every training iteration through an optimization equation $O$, which is a function of the derivatives of the cost function $C$ with respect to the network parameters:
+In order to reduce the errors of the network, weights and biases are updated after a certain period through an optimization equation $O$, which is a function of the derivatives of the cost function $C$ with respect to the network parameters:
 
 $$ \begin{flalign} &
-(w_{n_{l-1}n_l})^{i+1} = (w_{n_{l-1}n_l})^i - α \cdot O\big(\frac {\partial C}{\partial {w_{n_{l-1}n_l}}}\big)^i
+w_{n_{l-1}n_l} = w_{n_{l-1}n_l} - α \cdot O\big(\frac {\partial C}{\partial {w_{n_{l-1}n_l}}}\big)
 & \end{flalign} $$
 
 $$ \begin{flalign} &
-(b_{n_l})^{i+1} = (b_{n_l})^i - α \cdot O\big(\frac {\partial C}{\partial {b_{n_l}}}\big)^i
-& \end{flalign} $$
-
-Where the derivatives of the cost function for one training iteration are computed as the average across all samples in the training data set:
-
-$$ \begin{flalign} &
-\big( \frac{\partial C}{\partial {w_{n_{l-1}n_l}}} \big)^i = \frac{1}{S} \cdot \sum_{s}^S{\frac{\partial C}{\partial {w_{n_{l-1}n_l}}}}
-& \end{flalign} $$
-
-$$ \begin{flalign} &
-\big( \frac {\partial C}{\partial {b_{n_l}}} \big)^i = \frac{1}{S} \cdot \sum_{s}^S{\frac {\partial C}{\partial {b_{n_l}}}}
+b_{n_l} = b_{n_l} - α \cdot O\big(\frac {\partial C}{\partial {b_{n_l}}}\big)
 & \end{flalign} $$
 
 ## Chain Rule:
@@ -76,7 +66,18 @@ $$ \begin{flalign} &
 \dot C \big( y, \hat y \big) = \sum_{n_{l+1}}^{N_{l+1}} w_{n_{l}n_{l+1}} \cdot \dot C \big( y_{n_{l+1}}, \hat y_{n_{l+1}} \big) 
 & \end{flalign}$$
 
+## Regularization:
+
 ## Optimization Functions:
+### Gradient Descend:
+Network parameters are updated after every training iteration, averaging across all data samples.
+$$ \begin{flalign} &
+O \big( \frac{\partial C}{\partial {w_{n_{l-1}n_l}}} \big) = \frac{1}{S} \cdot \sum_{s}^S{\frac{\partial C}{\partial {w_{n_{l-1}n_l}}}}
+& \end{flalign}$$
+
+## Stochastic Gradient Descend:
+It is a gradient descend performed after each sample, instead of after the whole training iteration.
+O \big( \frac{\partial C}{\partial {w_{n_{l-1}n_l}}} \big)^{s+1} = \frac{1}{S} \cdot \sum_{s}^S{\frac{\partial C}{\partial {w_{n_{l-1}n_l}}}}
 
 ## Cost Functions:
 ### Quadratic Cost:
