@@ -17,7 +17,6 @@ $\hat y$ *= target output of neuron* $n_l$\
 $A$ *= activation function at neuron* $n_l$ *{Step, Linear, ReLU, Sigmoid, Tanh...}*\
 $C$ *= cost function {MSE, SSE, WSE, NSE...}*\
 $O$ *= optimization function {Gradient Descend, ADAM, Quasi Newton Method...}*\
-$δ$ *= error at neuron $n_l$ *\
 $α$ *= learning rate*
 
 <p align="center">
@@ -79,31 +78,29 @@ $$ \begin{flalign} &
 
 ## Optimization Functions:
 
-
-
 ## Cost Functions:
 ### Quadratic Cost:
 
 $$ \begin{flalign} &
-C\big(y, \hat y\big) = \dfrac{1}{2S}\sum_{s}^S \big(y - \hat y\big)^2
+C\big(y, \hat y\big) = \dfrac{1}{2} \big(y - \hat y\big)^2
 & \end{flalign} $$
 
 $$ \begin{flalign} &
-\dot C\big(y, \hat y\big) = \dfrac{1}{S}\sum_{s}^S \big(y - \hat y\big)
+\dot C\big(y, \hat y\big) = \big(y - \hat y\big)
 & \end{flalign} $$
 
 ### Cross Entropy Cost:
 $$ \begin{flalign} &
-C\big(y, \hat y\big) = -\sum_{s = 1}^S \big({\hat y} \text{ ln } y + (1 - {\hat y}) \cdot \text{ ln }(1-y)\big)
+C\big(y, \hat y\big) = -\big({\hat y} \text{ ln } y + (1 - {\hat y}) \cdot \text{ ln }(1-y)\big)
 & \end{flalign} $$
 
 $$ \begin{flalign} &
-\dot C\big(y, \hat y\big) = \dfrac{1}{S}\sum_{s = 1}^S \frac{y - \hat y}{(1-y) \cdot y}
+\dot C\big(y, \hat y\big) = \frac{y - \hat y}{(1-y) \cdot y}
 & \end{flalign} $$
 
 ### Exponential Cost:
 $$ \begin{flalign} &
-C \big( y, \hat y, \tau \big) = \tau \cdot \exp(\frac{1}{\tau} \sum_{s = 1}^S (y - \hat y)^2)
+C \big( y, \hat y, \tau \big) = \tau \cdot \exp(\frac{1}{\tau} (y - \hat y)^2)
 & \end{flalign} $$
 
 $$ \begin{flalign} &
@@ -113,7 +110,7 @@ $$ \begin{flalign} &
 ### Hellinger Distance:
 
 $$ \begin{flalign} &
-C\big(y, \hat y\big) = \dfrac{1}{\sqrt{2S}}\sum_{s = 1}^S \big(\sqrt{y} - \sqrt{\hat{y}} \big)^2
+C\big(y, \hat y\big) = \dfrac{1}{\sqrt{2}} \big(\sqrt{y} - \sqrt{\hat{y}} \big)^2
 & \end{flalign} $$
 
 $$ \begin{flalign} &
