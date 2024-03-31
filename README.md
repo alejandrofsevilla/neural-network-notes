@@ -9,10 +9,10 @@
 $n_l$ *= neuron at layer l*\
 $N_l$ *= number of neurons in layer l*\
 $w_{n_{l-1}n_l}$ *= weight between neurons* $n_{l-1}$ *and* $n_l$\
-$b$ *= bias of neuron* $n_l$\
-$z$ *= intermediate quantity of neuron* $n_l$\
-$y$ *= output of neuron* $n_l$\
-$\hat y$ *= target output of neuron* $n_l$\
+$b_{n_l}$ *= bias of neuron* $n_l$\
+$z_{n_l}$ *= intermediate quantity of neuron* $n_l$\
+$y_{n_l}$ *= output of neuron* $n_l$\
+$\hat y_{n_l}$ *= target output of neuron* $n_l$\
 $A$ *= activation function at neuron* $n_l$ *{Step, Linear, ReLU, Sigmoid, Tanh...}*\
 $C$ *= cost function {MSE, SSE, WSE, NSE...}*\
 $O$ *= optimization function {Gradient Descend, ADAM, Quasi Newton Method...}*\
