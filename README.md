@@ -1,10 +1,9 @@
 # Neural Networks Cheat Sheet
 
 ## Definitions:
-*i = training iteration*\
-*I = number of training iterations*\
+
 *s = sample*\
-*S = number of samples*\
+*S = number of samples in training batch*\
 *l = layer*\
 *L = number of layers*\
 $n_l$ *= neuron at layer l*\
@@ -33,15 +32,15 @@ $$ \begin{flalign} & y = A\big(z\big) & \end{flalign}$$
 In order to reduce the errors of the network, weights and biases are updated after a certain period through an optimization equation $O$, which is a function of the derivatives of the cost function $C$ with respect to the network parameters:
 
 $$ \begin{flalign} &
-w_{n_{l-1}n_l} = w_{n_{l-1}n_l} - α \cdot O\big(\frac {\partial C}{\partial {w_{n_{l-1}n_l}}}\big)
+\Delta w_{n_{l-1}n_l} = - α \cdot O\big(\frac {\partial C}{\partial {w_{n_{l-1}n_l}}}\big)
 & \end{flalign} $$
 
 $$ \begin{flalign} &
-b_{n_l} = b_{n_l} - α \cdot O\big(\frac {\partial C}{\partial {b_{n_l}}}\big)
+\Delta b_{n_l} = - α \cdot O\big(\frac {\partial C}{\partial {b_{n_l}}}\big)
 & \end{flalign} $$
 
 ### Gradient Descend Optimization Algorithm:
-Network parameters are updated after every training iteration, averaging across all training samples.
+Network parameters are updated after every training samples batch, averaging across all training samples.
 
 $$ \begin{flalign} &
 O \big( \frac{\partial C}{\partial {w_{n_{l-1}n_l}}} \big) = \frac{1}{S} \cdot \sum_{s}^S{\frac{\partial C}{\partial {w_{n_{l-1}n_l}}}}
@@ -53,6 +52,28 @@ It is a gradient descend performed after every training sample.
 $$ \begin{flalign} &
 O \big( \frac{\partial C}{\partial {w_{n_{l-1}n_l}}} \big) = \frac{\partial C}{\partial {w_{n_{l-1}n_l}}}
 & \end{flalign}$$
+
+## ADAM (Adaptive Moment Estimation):
+
+$$ \begin{flalign} &
+O \big( \frac{\partial C}{\partial {w_{n_{l-1}n_l}}} \big) = \frac{m_t}{\sqrt{v_t}+\epsilon}
+& \end{flalign}$$
+
+$$ \begin{flalign} &
+m_t = \beta_1 \cdot m_{t-1} + (1+\beta_1) \cdot \big( \frac{1}{S} \cdot \sum_{s}^S{\frac{\partial C}{\partial {w_{n_{l-1}n_l}}}} \big)
+& \end{flalign}$$
+
+$$ \begin{flalign} &
+v_t = \beta_2 \cdot v_{t-1} + (1+\beta_2) \cdot \big( \frac{1}{S} \cdot \sum_{s}^S{\frac{\partial C}{\partial {w_{n_{l-1}n_l}}}} \big)
+& \end{flalign}$$
+
+Where:
+
+$m_0$ *= 0* \
+$v_0$ *= 0* \
+$\epsilon$ *~10* \
+$\beta_1$ *~0.9*
+$\beta_2$ *~0.999*
 
 ## Chain Rule:
 The chain rule allows to separate the derivatives described above into components.
@@ -167,7 +188,8 @@ $\dot A \big(z\big) = 1 - {A(z)}^2$
 ## References:
 https://en.wikipedia.org/wiki/Activation_function#Table_of_activation_functions \
 http://neuralnetworksanddeeplearning.com/ \
-https://stats.stackexchange.com/questions/154879/a-list-of-cost-functions-used-in-neural-networks-alongside-applications
+https://stats.stackexchange.com/questions/154879/a-list-of-cost-functions-used-in-neural-networks-alongside-applications \
+https://towardsdatascience.com/optimizers-for-training-neural-network-59450d71caf6
 
 
 
