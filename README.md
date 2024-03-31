@@ -31,14 +31,24 @@ $$ \begin{flalign} & z = \sum_{n_{l-1}}^{N_{l-1}}(w_{n_{l-1}n_l} \cdot y_{n_{l-1
 $$ \begin{flalign} & y = A\big(z\big) & \end{flalign}$$
 
 ## Optimization Algorithm:
-In order to reduce the error of the network, weights and biases are updated after every training iteration through an optimization equation $O$, which is a function of the derivatives of the cost function $C$ with respect to the network parameters.
+In order to reduce the errors of the network, weights and biases are updated after every training iteration through an optimization equation $O$, which is a function of the derivatives of the cost function $C$ with respect to the network parameters:
 
 $$ \begin{flalign} &
 (w_{n_{l-1}n_l})^{i+1} = (w_{n_{l-1}n_l})^i - α \cdot O\big(\frac {\partial C}{\partial {w_{n_{l-1}n_l}}}\big)^i
 & \end{flalign} $$
 
 $$ \begin{flalign} &
-(b)^{i+1} = (b)^i - α \cdot O\big(\frac {\partial C}{\partial {b}}\big)^i
+(b_{n_l})^{i+1} = (b_{n_l})^i - α \cdot O\big(\frac {\partial C}{\partial {b_{n_l}}}\big)^i
+& \end{flalign} $$
+
+Where the derivatives of the cost function for one training iteration are computed as the average across all samples in the training data set:
+
+$$ \begin{flalign} &
+\big( \frac{\partial C}{\partial {w_{n_{l-1}n_l}}} \big)^i = \frac{1}{S} \cdot \sum_{s}^S{\frac{\partial C}{\partial {w_{n_{l-1}n_l}}}}
+& \end{flalign} $$
+
+$$ \begin{flalign} &
+\big( \frac {\partial C}{\partial {b_{n_l}}} \big)^i = \frac{1}{S} \cdot \sum_{s}^S{\frac {\partial C}{\partial {b_{n_l}}}}
 & \end{flalign} $$
 
 ## Chain Rule:
@@ -75,11 +85,11 @@ $$ \begin{flalign} &
 ### Quadratic Cost:
 
 $$ \begin{flalign} &
-C\big(y, \hat y\big) = \dfrac{1}{2S}\sum_{s = 1}^S \big(y - \hat y\big)^2
+C\big(y, \hat y\big) = \dfrac{1}{2S}\sum_{s}^S \big(y - \hat y\big)^2
 & \end{flalign} $$
 
 $$ \begin{flalign} &
-\dot C\big(y, \hat y\big) = \dfrac{1}{S}\sum_{s = 1}^S \big(y - \hat y\big)
+\dot C\big(y, \hat y\big) = \dfrac{1}{S}\sum_{s}^S \big(y - \hat y\big)
 & \end{flalign} $$
 
 ### Cross Entropy Cost:
