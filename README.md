@@ -71,7 +71,7 @@ $$ \begin{flalign} &
 & \end{flalign}$$
 
 ## Backpropagation
-In order to compute the components $\dot C \big(y, \hat y\big)$, it would be required to have the target output for each neuron, $\hat y$. However, a training data set only counts on the value, or an estimated value of $\hat y$ for the last layer, where $l = L$. Instead, for all layers  $l < L$ , $\dot C \big(y, the components \hat y\big)$ are computed as a weighted sum of the components obtained for the following layer $\dot C \big(y_{n_{l+1}}, \hat y_{n_{l+1}}\big)$ :
+In order to compute the components $\dot C \big(y, \hat y\big)$, it would be required to have the target output for each neuron, $\hat y$. However, a training data set only counts on the value, or an estimated value of $\hat y$ for the last layer, where $l = L$. Instead, for all layers  $l < L$ , $\dot C \big( y, \hat y \big)$ are computed as a weighted sum of the components obtained for the following layer $\dot C \big(y_{n_{l+1}}, \hat y_{n_{l+1}}\big)$ :
 
 $$ \begin{flalign} &
 \dot C \big( y, \hat y \big) = \sum_{n_{l+1}}^{N_{l+1}} w_{n_{l}n_{l+1}} \cdot \dot C \big( y_{n_{l+1}}, \hat y_{n_{l+1}} \big) 
