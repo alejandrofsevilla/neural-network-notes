@@ -40,7 +40,7 @@ $$ \begin{flalign} &
 & \end{flalign} $$
 
 ### Gradient Descend Optimization Algorithm:
-Network parameters are updated after every training samples batch $S$, averaging across all training samples.
+Network parameters are updated after every training batch $S$, averaging across all training samples.
 
 $$ \begin{flalign} &
 O \big( \frac{\partial C}{\partial {w_{n_{l-1}n_l}}} \big) = \frac{1}{S} \cdot \sum_{s}^S{\frac{\partial C}{\partial {w_{n_{l-1}n_l}}}}
