@@ -135,8 +135,6 @@ $\dot A \big(z\big) = A(z) \cdot (1-A(z))$
 $A \big(z\big) = \frac{e^{z} - e^{-z}}{e^{z} + e^{-z}}$\
 $\dot A \big(z\big) = 1 - {A(z)}^2$
 
-// TODO: more examples
-
 ## References:
 [https://en.wikipedia.org/wiki/Activation_function#Table_of_activation_functions](https://en.wikipedia.org/wiki/Activation_function#Table_of_activation_functions)\
 [http://neuralnetworksanddeeplearning.com/](http://neuralnetworksanddeeplearning.com/)
