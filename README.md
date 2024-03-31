@@ -41,14 +41,14 @@ b_{n_l} = b_{n_l} - α \cdot O\big(\frac {\partial C}{\partial {b_{n_l}}}\big)
 & \end{flalign} $$
 
 ### Gradient Descend Optimization Algorithm:
-Network parameters are updated after every training iteration, averaging across all data samples.
+Network parameters are updated after every training iteration, averaging across all training samples.
 
 $$ \begin{flalign} &
 O \big( \frac{\partial C}{\partial {w_{n_{l-1}n_l}}} \big) = \frac{1}{S} \cdot \sum_{s}^S{\frac{\partial C}{\partial {w_{n_{l-1}n_l}}}}
 & \end{flalign}$$
 
 ## Stochastic Gradient Descend Optimization Algorithm:
-It is a gradient descend performed after each sample.
+It is a gradient descend performed after every training sample.
 
 $$ \begin{flalign} &
 O \big( \frac{\partial C}{\partial {w_{n_{l-1}n_l}}} \big) = \frac{\partial C}{\partial {w_{n_{l-1}n_l}}}
