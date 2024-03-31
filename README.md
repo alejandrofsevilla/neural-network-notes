@@ -67,8 +67,9 @@ $$ \begin{flalign} &
 \dot C \big( y, \hat y \big) = \sum_{n_{l+1}}^{N_{l+1}} w_{n_{l}n_{l+1}} \cdot \dot C \big( y_{n_{l+1}}, \hat y_{n_{l+1}} \big) 
 & \end{flalign}$$
 
-## Optimization Function Examples:
-// TODO: add examples
+## Optimization Functions:
+
+
 
 ## Cost Functions:
 ### Quadratic Cost:
@@ -88,6 +89,25 @@ C\big(y, \hat y\big) = -\sum_{s = 1}^S \big({\hat y} \text{ ln } y + (1 - {\hat 
 
 $$ \begin{flalign} &
 \dot C\big(y, \hat y\big) = \dfrac{1}{S}\sum_{s = 1}^S \frac{y - \hat y}{(1-y) \cdot y}
+& \end{flalign} $$
+
+### Exponential Cost:
+$$ \begin{flalign} &
+C \big( y, \hat y, \tau \big) = \tau \cdot \exp(\frac{1}{\tau} \sum_{s = 1}^S (y - \hat y)^2)
+& \end{flalign} $$
+
+$$ \begin{flalign} &
+\dot C \big( y, \hat y, \tau \big) = \frac{2}{\tau} \big( y - \hat y \big) \cdot C\big(y, \hat y, \tau \big)
+& \end{flalign} $$
+
+### Hellinger Distance:
+
+$$ \begin{flalign} &
+C\big(y, \hat y\big) = \dfrac{1}{\sqrt{2S}}\sum_{s = 1}^S \big(\sqrt{y} - \sqrt{\hat{y}} \big)^2
+& \end{flalign} $$
+
+$$ \begin{flalign} &
+\dot C\big(y, \hat y\big) = \dfrac{\sqrt{y} - \sqrt{\hat y}}{\sqrt{2} \cdot \sqrt{y} }
 & \end{flalign} $$
 
 ## Activation Functions:
