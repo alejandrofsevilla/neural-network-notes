@@ -18,7 +18,6 @@ $C$ *= cost function {MSE, SSE, WSE, NSE...}*\
 $O$ *= optimization function {Gradient Descend, ADAM, Quasi Newton Method...}*\
 $α$ *= learning rate*
 
-
 ## Neuron Equations
 <p align="center">
   <img src="https://github.com/alejandrofsevilla/neural_network_notes/assets/110661590/2522d49c-d13d-4544-b7bb-59072d4dabf4" />
@@ -29,48 +28,6 @@ $$ \begin{flalign} & z_{n_l} = \sum_{n_{l-1}}^{N_{l-1}}(w_{n_{l-1}n_l} \cdot y_{
 ### Neuron Output:
 $$ \begin{flalign} & y_{n_l} = A\big(z\big) & \end{flalign}$$
 
-### Activation Functions:
-#### Binary Step:
-$$ \begin{flalign} &
-\begin{split}A \big(z\big) = \begin{Bmatrix} 1 & z ≥ 0 \\
- 0 & z < 0 \end{Bmatrix}\end{split}
-& \end{flalign} $$
-
-$\dot A \big(z\big) = 0$
-
-#### Linear:
-$A \big(z\big) = z$\
-$\dot A \big(z\big) = 1$
-
-#### ReLU (Rectified Linear Unit):
-$$ \begin{flalign} &
-\begin{split}A \big(z\big) = \begin{Bmatrix} z & z > 0 \\
- 0 & z ≤ 0 \end{Bmatrix}\end{split}
-& \end{flalign} $$
-
-$$ \begin{flalign} &
-\begin{split}\dot A \big(z\big) = \begin{Bmatrix} 1 & z > 0 \\
- 0 & z ≤ 0 \end{Bmatrix}\end{split}
-& \end{flalign} $$
-
-#### Leaky ReLU:
-$$ \begin{flalign} &
-\begin{split}A \big(z\big) = \begin{Bmatrix} z & z > 0 \\
- 0.01 \cdot z & z ≤ 0 \end{Bmatrix}\end{split}
-& \end{flalign} $$
-
-$$ \begin{flalign} &
-\begin{split}\dot A \big(z\big) = \begin{Bmatrix} 1 & z > 0 \\
- 0.01 & z ≤ 0 \end{Bmatrix}\end{split}
-& \end{flalign} $$
-
-#### Sigmoid:
-$A \big(z\big) = \frac{1} {1 + e^{-z}}$\
-$\dot A \big(z\big) = A(z) \cdot (1-A(z))$
-
-#### Tanh (Hyperbolic Tangent):
-$A \big(z\big) = \frac{e^{z} - e^{-z}}{e^{z} + e^{-z}}$\
-$\dot A \big(z\big) = 1 - {A(z)}^2$
 
 ## Optimization Algorithm:
 In order to reduce the errors of the network, weights and biases are updated after a certain period through an optimization equation $O$, which is a function of the derivatives of the cost function $C$ with respect to the network parameters:
@@ -109,8 +66,51 @@ $$ \begin{flalign} &
 \dot C \big( y, \hat y \big) = \sum_{n_{l+1}}^{N_{l+1}} w_{n_{l}n_{l+1}} \cdot \dot C \big( y_{n_{l+1}}, \hat y_{n_{l+1}} \big) 
 & \end{flalign}$$
 
-### Cost Functions:
-#### Quadratic Cost:
+## Activation Functions:
+### Binary Step:
+$$ \begin{flalign} &
+\begin{split}A \big(z\big) = \begin{Bmatrix} 1 & z ≥ 0 \\
+ 0 & z < 0 \end{Bmatrix}\end{split}
+& \end{flalign} $$
+
+$\dot A \big(z\big) = 0$
+
+### Linear:
+$A \big(z\big) = z$\
+$\dot A \big(z\big) = 1$
+
+### ReLU (Rectified Linear Unit):
+$$ \begin{flalign} &
+\begin{split}A \big(z\big) = \begin{Bmatrix} z & z > 0 \\
+ 0 & z ≤ 0 \end{Bmatrix}\end{split}
+& \end{flalign} $$
+
+$$ \begin{flalign} &
+\begin{split}\dot A \big(z\big) = \begin{Bmatrix} 1 & z > 0 \\
+ 0 & z ≤ 0 \end{Bmatrix}\end{split}
+& \end{flalign} $$
+
+### Leaky ReLU:
+$$ \begin{flalign} &
+\begin{split}A \big(z\big) = \begin{Bmatrix} z & z > 0 \\
+ 0.01 \cdot z & z ≤ 0 \end{Bmatrix}\end{split}
+& \end{flalign} $$
+
+$$ \begin{flalign} &
+\begin{split}\dot A \big(z\big) = \begin{Bmatrix} 1 & z > 0 \\
+ 0.01 & z ≤ 0 \end{Bmatrix}\end{split}
+& \end{flalign} $$
+
+### Sigmoid:
+$A \big(z\big) = \frac{1} {1 + e^{-z}}$\
+$\dot A \big(z\big) = A(z) \cdot (1-A(z))$
+
+### Tanh (Hyperbolic Tangent):
+$A \big(z\big) = \frac{e^{z} - e^{-z}}{e^{z} + e^{-z}}$\
+$\dot A \big(z\big) = 1 - {A(z)}^2$
+
+## Cost Functions:
+### Quadratic Cost:
 
 $$ \begin{flalign} &
 C\big(y, \hat y\big) = \dfrac{1}{2} \big(y - \hat y\big)^2
@@ -120,7 +120,7 @@ $$ \begin{flalign} &
 \dot C\big(y, \hat y\big) = \big(y - \hat y\big)
 & \end{flalign} $$
 
-#### Cross Entropy Cost:
+### Cross Entropy Cost:
 $$ \begin{flalign} &
 C\big(y, \hat y\big) = -\big({\hat y} \text{ ln } y + (1 - {\hat y}) \cdot \text{ ln }(1-y)\big)
 & \end{flalign} $$
@@ -129,7 +129,7 @@ $$ \begin{flalign} &
 \dot C\big(y, \hat y\big) = \frac{y - \hat y}{(1-y) \cdot y}
 & \end{flalign} $$
 
-#### Exponential Cost:
+### Exponential Cost:
 $$ \begin{flalign} &
 C \big( y, \hat y, \tau \big) = \tau \cdot \exp(\frac{1}{\tau} (y - \hat y)^2)
 & \end{flalign} $$
@@ -138,7 +138,7 @@ $$ \begin{flalign} &
 \dot C \big( y, \hat y, \tau \big) = \frac{2}{\tau} \big( y - \hat y \big) \cdot C\big(y, \hat y, \tau \big)
 & \end{flalign} $$
 
-#### Hellinger Distance:
+### Hellinger Distance:
 
 $$ \begin{flalign} &
 C\big(y, \hat y\big) = \dfrac{1}{\sqrt{2}} \big(\sqrt{y} - \sqrt{\hat{y}} \big)^2
@@ -148,22 +148,22 @@ $$ \begin{flalign} &
 \dot C\big(y, \hat y\big) = \dfrac{\sqrt{y} - \sqrt{\hat y}}{\sqrt{2} \cdot \sqrt{y} }
 & \end{flalign} $$
 
-### Optimization Functions:
-#### Gradient Descend:
+## Optimization Functions:
+### Gradient Descend:
 Network parameters are updated after every training batch $S$, averaging across all training samples.
 
 $$ \begin{flalign} &
 O \big( \frac{\partial C}{\partial {w_{n_{l-1}n_l}}} \big) = \frac{1}{S} \cdot \sum_{s}^S{\frac{\partial C}{\partial {w_{n_{l-1}n_l}}}}
 & \end{flalign}$$
 
-#### Stochastic Gradient Descend:
+### Stochastic Gradient Descend:
 It is a gradient descend performed after every training sample $s$.
 
 $$ \begin{flalign} &
 O \big( \frac{\partial C}{\partial {w_{n_{l-1}n_l}}} \big) = \frac{\partial C}{\partial {w_{n_{l-1}n_l}}}
 & \end{flalign}$$
 
-#### ADAM (Adaptive Moment Estimation):
+### ADAM (Adaptive Moment Estimation):
 Network parameters are updated after every training batch $S$, with an adapted value of the cost function derivatives.
 
 $$ \begin{flalign} &
@@ -186,10 +186,10 @@ $\epsilon = 10^{-8}$ \
 $\beta_1 = 0.9$ \
 $\beta_2 = 0.999$
 
-### Regularization:
+## Regularization:
 Extra terms are added to the cost function in order to prevent over-fitting.
 
-#### L2:
+### L2:
 
 $$ \begin{flalign} &
 \Delta C = \frac{\lambda}{2n} \sum^W w^2
