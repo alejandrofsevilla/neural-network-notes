@@ -56,22 +56,22 @@ The chain rule allows to separate the derivatives described above into component
 
 $$ \begin{flalign} &
 \frac {\partial C}{\partial {w_{n_{l-1}n_l}}} 
-= \frac{\partial C}{\partial z} \cdot \frac{\partial z}{\partial {w_{n_{l-1}n_l}}}
-= \frac{\partial C}{\partial z} \cdot y_{n_{l-1}}
-= \frac{\partial C}{\partial y} \cdot \frac{\partial y}{\partial z} \cdot y_{n_{l-1}}
-= \dot C\big(y, \hat y\big) \cdot \dot A\big(z\big) \cdot y_{n_{l-1}}
+= \frac{\partial C}{\partial z_{n_l}} \cdot \frac{\partial z_{n_l}}{\partial {w_{n_{l-1}n_l}}}
+= \frac{\partial C}{\partial z_{n_l}} \cdot y_{n_{l-1}}
+= \frac{\partial C}{\partial y_{n_l}} \cdot \frac{\partial y_{n_l}}{\partial z_{n_l}} \cdot y_{n_{l-1}}
+= \dot C\big(y_{n_l}, \hat y_{n_l}\big) \cdot \dot A\big(z_{n_l}\big) \cdot y_{n_{l-1}}
 & \end{flalign}$$
 
 $$ \begin{flalign} &
 \frac {\partial C}{\partial {b}} 
-= \frac{\partial C}{\partial z}
-= \frac{\partial C}{\partial z}
-= \frac{\partial C}{\partial y} \cdot \frac{\partial y}{\partial z}
-= \dot C\big(y, \hat y\big) \cdot \dot A\big(z\big)
+= \frac{\partial C}{\partial z_{n_l}}
+= \frac{\partial C}{\partial z_{n_l}}
+= \frac{\partial C}{\partial y_{n_l}} \cdot \frac{\partial y_{n_l}}{\partial z_{n_l}}
+= \dot C\big(y_{n_l}, \hat y_{n_l}\big) \cdot \dot A\big(z_{n_l}\big)
 & \end{flalign}$$
 
 ## Backpropagation
-In order to compute the terms $\dot C \big(y, \hat y\big)$, it would be required to have the output target value for each neuron, $\hat y$. However, a training data set only counts on the value, or an estimated value of $\hat y$ for the last layer, where $l = L$. Instead, for all previous layers  $l < L$, components $\dot C \big( y, \hat y \big)$ are computed as a weighted sum of the components obtained for the following layer $\dot C \big(y_{n_{l+1}}, \hat y_{n_{l+1}}\big)$ :
+In order to compute the terms $\dot C \big(y_{n_l}, \hat y_{n_l}\big)$, it would be required to have the output target value for each neuron, $\hat y_{n_l}$. However, a training data set only counts on the value of $\hat y_{n_l}$ for the last layer, where $l = L$. Instead, for all previous layers  $l < L$, components $\dot C \big( y_{n_l}, \hat y_{n_l} \big)$ are computed as a weighted sum of the components obtained for the following layer $\dot C \big(y_{n_{l+1}}, \hat y_{n_{l+1}}\big)$ :
 
 $$ \begin{flalign} &
 \dot C \big( y, \hat y \big) = \sum_{n_{l+1}}^{N_{l+1}} w_{n_{l}n_{l+1}} \cdot \dot C \big( y_{n_{l+1}}, \hat y_{n_{l+1}} \big) 
