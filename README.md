@@ -31,7 +31,7 @@ $$ \begin{flalign} & z_{n_l} = \sum_{n_{l-1}}^{N_{l-1}}(w_{n_{l-1}n_l} \cdot y_{
 $$ \begin{flalign} & y_{n_l} = A_{n_l}\big(z_{n_l}\big) & \end{flalign}$$
 
 ## Optimization Algorithm:
-In order to improve the precision of the network, weights and biases are updated after every training iteration through an optimization equation $O$, such as Gradient Descend or ADAM, which are functions of the derivatives of the cost function $C$.
+In order to improve the precision of the network, weights and biases are updated after every training iteration through an optimization equation $O$, which will be a function of the derivatives of the cost function $C$.
 
 $$ \begin{flalign} &
 (w_{n_{l-1}n_l})^{i+1} = (w_{n_{l-1}n_l})^i - α \cdot O\big(\frac {\partial C}{\partial {w_{n_{l-1}n_l}}}\big)
