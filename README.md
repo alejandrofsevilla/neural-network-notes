@@ -1,4 +1,7 @@
 # Neural Networks Cheat Sheet
+<p align="center">
+  <img src="https://github.com/alejandrofsevilla/neural_network_notes/assets/110661590/2522d49c-d13d-4544-b7bb-59072d4dabf4" />
+</p>
 
 ## Definitions:
 
@@ -18,9 +21,6 @@ $C$ *= cost function {MSE, SSE, WSE, NSE...}*\
 $O$ *= optimization function {Gradient Descend, ADAM, Quasi Newton Method...}*\
 $α$ *= learning rate*
 
-<p align="center">
-  <img src="https://github.com/alejandrofsevilla/neural_network_notes/assets/110661590/2522d49c-d13d-4544-b7bb-59072d4dabf4" />
-</p>
 
 ## Neuron Equations:
 ### Neuron Intermediate Quantity:
