@@ -28,6 +28,49 @@ $$ \begin{flalign} & z = \sum_{n_{l-1}}^{N_{l-1}}(w_{n_{l-1}n_l} \cdot y_{n_{l-1
 ### Neuron Output:
 $$ \begin{flalign} & y = A\big(z\big) & \end{flalign}$$
 
+### Activation Functions:
+#### Binary Step:
+$$ \begin{flalign} &
+\begin{split}A \big(z\big) = \begin{Bmatrix} 1 & z ≥ 0 \\
+ 0 & z < 0 \end{Bmatrix}\end{split}
+& \end{flalign} $$
+
+$\dot A \big(z\big) = 0$
+
+#### Linear:
+$A \big(z\big) = z$\
+$\dot A \big(z\big) = 1$
+
+#### ReLU (Rectified Linear Unit):
+$$ \begin{flalign} &
+\begin{split}A \big(z\big) = \begin{Bmatrix} z & z > 0 \\
+ 0 & z ≤ 0 \end{Bmatrix}\end{split}
+& \end{flalign} $$
+
+$$ \begin{flalign} &
+\begin{split}\dot A \big(z\big) = \begin{Bmatrix} 1 & z > 0 \\
+ 0 & z ≤ 0 \end{Bmatrix}\end{split}
+& \end{flalign} $$
+
+#### Leaky ReLU:
+$$ \begin{flalign} &
+\begin{split}A \big(z\big) = \begin{Bmatrix} z & z > 0 \\
+ 0.01 \cdot z & z ≤ 0 \end{Bmatrix}\end{split}
+& \end{flalign} $$
+
+$$ \begin{flalign} &
+\begin{split}\dot A \big(z\big) = \begin{Bmatrix} 1 & z > 0 \\
+ 0.01 & z ≤ 0 \end{Bmatrix}\end{split}
+& \end{flalign} $$
+
+#### Sigmoid:
+$A \big(z\big) = \frac{1} {1 + e^{-z}}$\
+$\dot A \big(z\big) = A(z) \cdot (1-A(z))$
+
+#### Tanh (Hyperbolic Tangent):
+$A \big(z\big) = \frac{e^{z} - e^{-z}}{e^{z} + e^{-z}}$\
+$\dot A \big(z\big) = 1 - {A(z)}^2$
+
 ## Optimization Algorithm:
 In order to reduce the errors of the network, weights and biases are updated after a certain period through an optimization equation $O$, which is a function of the derivatives of the cost function $C$ with respect to the network parameters:
 
@@ -39,21 +82,87 @@ $$ \begin{flalign} &
 \Delta b_{n_l} = - α \cdot O\big(\frac {\partial C}{\partial {b_{n_l}}}\big)
 & \end{flalign} $$
 
-### Gradient Descend Optimization Algorithm:
+### Chain Rule:
+The chain rule allows to separate the derivatives described above into components.
+
+$$ \begin{flalign} &
+\frac {\partial C}{\partial {w_{n_{l-1}n_l}}} 
+= \frac{\partial C}{\partial z_{n_l}} \cdot \frac{\partial z_{n_l}}{\partial {w_{n_{l-1}n_l}}}
+= \frac{\partial C}{\partial z_{n_l}} \cdot y_{n_{l-1}}
+= \frac{\partial C}{\partial y_{n_l}} \cdot \frac{\partial y_{n_l}}{\partial z_{n_l}} \cdot y_{n_{l-1}}
+= \dot C\big(y_{n_l}, \hat y_{n_l}\big) \cdot \dot A\big(z_{n_l}\big) \cdot y_{n_{l-1}}
+& \end{flalign}$$
+
+$$ \begin{flalign} &
+\frac {\partial C}{\partial {b}} 
+= \frac{\partial C}{\partial z_{n_l}}
+= \frac{\partial C}{\partial z_{n_l}}
+= \frac{\partial C}{\partial y_{n_l}} \cdot \frac{\partial y_{n_l}}{\partial z_{n_l}}
+= \dot C\big(y_{n_l}, \hat y_{n_l}\big) \cdot \dot A\big(z_{n_l}\big)
+& \end{flalign}$$
+
+### Backpropagation
+In order to compute the terms $\dot C \big(y_{n_l}, \hat y_{n_l}\big)$, it would be required to have the output target value for each neuron, $\hat y_{n_l}$. However, a training data set only counts on the value of $\hat y_{n_l}$ for the last layer, where $l = L$. Instead, for all previous layers  $l < L$, components $\dot C \big( y_{n_l}, \hat y_{n_l} \big)$ are computed as a weighted sum of the components obtained for the following layer $\dot C \big(y_{n_{l+1}}, \hat y_{n_{l+1}}\big)$ :
+
+$$ \begin{flalign} &
+\dot C \big( y, \hat y \big) = \sum_{n_{l+1}}^{N_{l+1}} w_{n_{l}n_{l+1}} \cdot \dot C \big( y_{n_{l+1}}, \hat y_{n_{l+1}} \big) 
+& \end{flalign}$$
+
+### Cost Functions:
+#### Quadratic Cost:
+
+$$ \begin{flalign} &
+C\big(y, \hat y\big) = \dfrac{1}{2} \big(y - \hat y\big)^2
+& \end{flalign} $$
+
+$$ \begin{flalign} &
+\dot C\big(y, \hat y\big) = \big(y - \hat y\big)
+& \end{flalign} $$
+
+#### Cross Entropy Cost:
+$$ \begin{flalign} &
+C\big(y, \hat y\big) = -\big({\hat y} \text{ ln } y + (1 - {\hat y}) \cdot \text{ ln }(1-y)\big)
+& \end{flalign} $$
+
+$$ \begin{flalign} &
+\dot C\big(y, \hat y\big) = \frac{y - \hat y}{(1-y) \cdot y}
+& \end{flalign} $$
+
+#### Exponential Cost:
+$$ \begin{flalign} &
+C \big( y, \hat y, \tau \big) = \tau \cdot \exp(\frac{1}{\tau} (y - \hat y)^2)
+& \end{flalign} $$
+
+$$ \begin{flalign} &
+\dot C \big( y, \hat y, \tau \big) = \frac{2}{\tau} \big( y - \hat y \big) \cdot C\big(y, \hat y, \tau \big)
+& \end{flalign} $$
+
+#### Hellinger Distance:
+
+$$ \begin{flalign} &
+C\big(y, \hat y\big) = \dfrac{1}{\sqrt{2}} \big(\sqrt{y} - \sqrt{\hat{y}} \big)^2
+& \end{flalign} $$
+
+$$ \begin{flalign} &
+\dot C\big(y, \hat y\big) = \dfrac{\sqrt{y} - \sqrt{\hat y}}{\sqrt{2} \cdot \sqrt{y} }
+& \end{flalign} $$
+
+### Optimization Functions:
+#### Gradient Descend:
 Network parameters are updated after every training batch $S$, averaging across all training samples.
 
 $$ \begin{flalign} &
 O \big( \frac{\partial C}{\partial {w_{n_{l-1}n_l}}} \big) = \frac{1}{S} \cdot \sum_{s}^S{\frac{\partial C}{\partial {w_{n_{l-1}n_l}}}}
 & \end{flalign}$$
 
-## Stochastic Gradient Descend Optimization Algorithm:
+#### Stochastic Gradient Descend:
 It is a gradient descend performed after every training sample $s$.
 
 $$ \begin{flalign} &
 O \big( \frac{\partial C}{\partial {w_{n_{l-1}n_l}}} \big) = \frac{\partial C}{\partial {w_{n_{l-1}n_l}}}
 & \end{flalign}$$
 
-## ADAM (Adaptive Moment Estimation):
+#### ADAM (Adaptive Moment Estimation):
 Network parameters are updated after every training batch $S$, with an adapted value of the cost function derivatives.
 
 $$ \begin{flalign} &
@@ -76,115 +185,8 @@ $\epsilon = 10^{-8}$ \
 $\beta_1 = 0.9$ \
 $\beta_2 = 0.999$
 
-## Chain Rule:
-The chain rule allows to separate the derivatives described above into components.
+### Regularization:
 
-$$ \begin{flalign} &
-\frac {\partial C}{\partial {w_{n_{l-1}n_l}}} 
-= \frac{\partial C}{\partial z_{n_l}} \cdot \frac{\partial z_{n_l}}{\partial {w_{n_{l-1}n_l}}}
-= \frac{\partial C}{\partial z_{n_l}} \cdot y_{n_{l-1}}
-= \frac{\partial C}{\partial y_{n_l}} \cdot \frac{\partial y_{n_l}}{\partial z_{n_l}} \cdot y_{n_{l-1}}
-= \dot C\big(y_{n_l}, \hat y_{n_l}\big) \cdot \dot A\big(z_{n_l}\big) \cdot y_{n_{l-1}}
-& \end{flalign}$$
-
-$$ \begin{flalign} &
-\frac {\partial C}{\partial {b}} 
-= \frac{\partial C}{\partial z_{n_l}}
-= \frac{\partial C}{\partial z_{n_l}}
-= \frac{\partial C}{\partial y_{n_l}} \cdot \frac{\partial y_{n_l}}{\partial z_{n_l}}
-= \dot C\big(y_{n_l}, \hat y_{n_l}\big) \cdot \dot A\big(z_{n_l}\big)
-& \end{flalign}$$
-
-## Backpropagation
-In order to compute the terms $\dot C \big(y_{n_l}, \hat y_{n_l}\big)$, it would be required to have the output target value for each neuron, $\hat y_{n_l}$. However, a training data set only counts on the value of $\hat y_{n_l}$ for the last layer, where $l = L$. Instead, for all previous layers  $l < L$, components $\dot C \big( y_{n_l}, \hat y_{n_l} \big)$ are computed as a weighted sum of the components obtained for the following layer $\dot C \big(y_{n_{l+1}}, \hat y_{n_{l+1}}\big)$ :
-
-$$ \begin{flalign} &
-\dot C \big( y, \hat y \big) = \sum_{n_{l+1}}^{N_{l+1}} w_{n_{l}n_{l+1}} \cdot \dot C \big( y_{n_{l+1}}, \hat y_{n_{l+1}} \big) 
-& \end{flalign}$$
-
-## Regularization:
-
-## Cost Functions:
-### Quadratic Cost:
-
-$$ \begin{flalign} &
-C\big(y, \hat y\big) = \dfrac{1}{2} \big(y - \hat y\big)^2
-& \end{flalign} $$
-
-$$ \begin{flalign} &
-\dot C\big(y, \hat y\big) = \big(y - \hat y\big)
-& \end{flalign} $$
-
-### Cross Entropy Cost:
-$$ \begin{flalign} &
-C\big(y, \hat y\big) = -\big({\hat y} \text{ ln } y + (1 - {\hat y}) \cdot \text{ ln }(1-y)\big)
-& \end{flalign} $$
-
-$$ \begin{flalign} &
-\dot C\big(y, \hat y\big) = \frac{y - \hat y}{(1-y) \cdot y}
-& \end{flalign} $$
-
-### Exponential Cost:
-$$ \begin{flalign} &
-C \big( y, \hat y, \tau \big) = \tau \cdot \exp(\frac{1}{\tau} (y - \hat y)^2)
-& \end{flalign} $$
-
-$$ \begin{flalign} &
-\dot C \big( y, \hat y, \tau \big) = \frac{2}{\tau} \big( y - \hat y \big) \cdot C\big(y, \hat y, \tau \big)
-& \end{flalign} $$
-
-### Hellinger Distance:
-
-$$ \begin{flalign} &
-C\big(y, \hat y\big) = \dfrac{1}{\sqrt{2}} \big(\sqrt{y} - \sqrt{\hat{y}} \big)^2
-& \end{flalign} $$
-
-$$ \begin{flalign} &
-\dot C\big(y, \hat y\big) = \dfrac{\sqrt{y} - \sqrt{\hat y}}{\sqrt{2} \cdot \sqrt{y} }
-& \end{flalign} $$
-
-## Activation Functions:
-### Binary Step:
-$$ \begin{flalign} &
-\begin{split}A \big(z\big) = \begin{Bmatrix} 1 & z ≥ 0 \\
- 0 & z < 0 \end{Bmatrix}\end{split}
-& \end{flalign} $$
-
-$\dot A \big(z\big) = 0$
-
-### Linear:
-$A \big(z\big) = z$\
-$\dot A \big(z\big) = 1$
-
-### ReLU (Rectified Linear Unit):
-$$ \begin{flalign} &
-\begin{split}A \big(z\big) = \begin{Bmatrix} z & z > 0 \\
- 0 & z ≤ 0 \end{Bmatrix}\end{split}
-& \end{flalign} $$
-
-$$ \begin{flalign} &
-\begin{split}\dot A \big(z\big) = \begin{Bmatrix} 1 & z > 0 \\
- 0 & z ≤ 0 \end{Bmatrix}\end{split}
-& \end{flalign} $$
-
-### Leaky ReLU:
-$$ \begin{flalign} &
-\begin{split}A \big(z\big) = \begin{Bmatrix} z & z > 0 \\
- 0.01 \cdot z & z ≤ 0 \end{Bmatrix}\end{split}
-& \end{flalign} $$
-
-$$ \begin{flalign} &
-\begin{split}\dot A \big(z\big) = \begin{Bmatrix} 1 & z > 0 \\
- 0.01 & z ≤ 0 \end{Bmatrix}\end{split}
-& \end{flalign} $$
-
-### Sigmoid:
-$A \big(z\big) = \frac{1} {1 + e^{-z}}$\
-$\dot A \big(z\big) = A(z) \cdot (1-A(z))$
-
-### Tanh (Hyperbolic Tangent):
-$A \big(z\big) = \frac{e^{z} - e^{-z}}{e^{z} + e^{-z}}$\
-$\dot A \big(z\big) = 1 - {A(z)}^2$
 
 ## References:
 https://en.wikipedia.org/wiki/Activation_function#Table_of_activation_functions \
