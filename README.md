@@ -70,8 +70,8 @@ $$ \begin{flalign} &
 ## Optimization Function Examples:
 // TODO: add examples
 
-## Cost Function Examples:
-### Mean Squared Error:
+## Cost Functions:
+### Quadratic Cost:
 
 $$ \begin{flalign} &
 C\big(y, \hat y\big) = \dfrac{1}{2S}\sum_{s = 1}^S \big(y - \hat y\big)^2
@@ -81,7 +81,7 @@ $$ \begin{flalign} &
 \dot C\big(y, \hat y\big) = \dfrac{1}{S}\sum_{s = 1}^S \big(y - \hat y\big)
 & \end{flalign} $$
 
-### Mean Binary Cross Cost
+### Cross Entropy Cost:
 $$ \begin{flalign} &
 C\big(y, \hat y\big) = -\sum_{s = 1}^S \big({\hat y} \text{ ln } y + (1 - {\hat y}) \cdot \text{ ln }(1-y)\big)
 & \end{flalign} $$
@@ -89,8 +89,6 @@ C\big(y, \hat y\big) = -\sum_{s = 1}^S \big({\hat y} \text{ ln } y + (1 - {\hat 
 $$ \begin{flalign} &
 \dot C\big(y, \hat y\big) = \dfrac{1}{S}\sum_{s = 1}^S \frac{y - \hat y}{(1-y) \cdot y}
 & \end{flalign} $$
-
-// TODO: more examples
 
 ## Activation Functions:
 ### Binary Step:
@@ -136,6 +134,9 @@ $A \big(z\big) = \frac{e^{z} - e^{-z}}{e^{z} + e^{-z}}$\
 $\dot A \big(z\big) = 1 - {A(z)}^2$
 
 ## References:
-[https://en.wikipedia.org/wiki/Activation_function#Table_of_activation_functions](https://en.wikipedia.org/wiki/Activation_function#Table_of_activation_functions)\
-[http://neuralnetworksanddeeplearning.com/](http://neuralnetworksanddeeplearning.com/)
+https://en.wikipedia.org/wiki/Activation_function#Table_of_activation_functions \
+http://neuralnetworksanddeeplearning.com/ \
+https://stats.stackexchange.com/questions/154879/a-list-of-cost-functions-used-in-neural-networks-alongside-applications
+
+
 
