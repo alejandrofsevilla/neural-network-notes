@@ -1,9 +1,6 @@
 # Neural Networks Cheat Sheet
-<p align="center">
-  <img src="https://github.com/alejandrofsevilla/neural_network_notes/assets/110661590/2522d49c-d13d-4544-b7bb-59072d4dabf4" />
-</p>
 
-## Definitions:
+## List of Symbols
 
 *s = sample*\
 *S = number of samples in training batch*\
@@ -22,7 +19,11 @@ $O$ *= optimization function {Gradient Descend, ADAM, Quasi Newton Method...}*\
 $α$ *= learning rate*
 
 
-## Neuron Equations:
+## Neuron Equations
+<p align="center">
+  <img src="https://github.com/alejandrofsevilla/neural_network_notes/assets/110661590/2522d49c-d13d-4544-b7bb-59072d4dabf4" />
+</p>
+
 ### Neuron Intermediate Quantity:
 $$ \begin{flalign} & z_{n_l} = \sum_{n_{l-1}}^{N_{l-1}}(w_{n_{l-1}n_l} \cdot y_{n_{l-1}} + b) & \end{flalign}$$
 ### Neuron Output:
