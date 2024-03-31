@@ -48,7 +48,7 @@ O \big( \frac{\partial C}{\partial {w_{n_{l-1}n_l}}} \big) = \frac{1}{S} \cdot \
 & \end{flalign}$$
 
 ## Stochastic Gradient Descend Optimization Algorithm:
-It is a gradient descend performed after each sample, instead of after the whole training iteration.
+It is a gradient descend performed after each sample.
 
 $$ \begin{flalign} &
 O \big( \frac{\partial C}{\partial {w_{n_{l-1}n_l}}} \big) = \frac{\partial C}{\partial {w_{n_{l-1}n_l}}}
