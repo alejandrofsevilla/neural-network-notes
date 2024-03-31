@@ -40,6 +40,20 @@ $$ \begin{flalign} &
 b_{n_l} = b_{n_l} - α \cdot O\big(\frac {\partial C}{\partial {b_{n_l}}}\big)
 & \end{flalign} $$
 
+### Gradient Descend Optimization Algorithm:
+Network parameters are updated after every training iteration, averaging across all data samples.
+
+$$ \begin{flalign} &
+O \big( \frac{\partial C}{\partial {w_{n_{l-1}n_l}}} \big) = \frac{1}{S} \cdot \sum_{s}^S{\frac{\partial C}{\partial {w_{n_{l-1}n_l}}}}
+& \end{flalign}$$
+
+## Stochastic Gradient Descend Optimization Algorithm:
+It is a gradient descend performed after each sample, instead of after the whole training iteration.
+
+$$ \begin{flalign} &
+O \big( \frac{\partial C}{\partial {w_{n_{l-1}n_l}}} \big) = \frac{\partial C}{\partial {w_{n_{l-1}n_l}}}
+& \end{flalign}$$
+
 ## Chain Rule:
 The chain rule allows to separate the derivatives described above into components.
 
@@ -67,21 +81,6 @@ $$ \begin{flalign} &
 & \end{flalign}$$
 
 ## Regularization:
-
-## Optimization Functions:
-### Gradient Descend Optimization Algorithm:
-Network parameters are updated after every training iteration, averaging across all data samples.
-
-$$ \begin{flalign} &
-O \big( \frac{\partial C}{\partial {w_{n_{l-1}n_l}}} \big) = \frac{1}{S} \cdot \sum_{s}^S{\frac{\partial C}{\partial {w_{n_{l-1}n_l}}}}
-& \end{flalign}$$
-
-## Stochastic Gradient Descend Optimization Algorithm:
-It is a gradient descend performed after each sample, instead of after the whole training iteration.
-
-$$ \begin{flalign} &
-O \big( \frac{\partial C}{\partial {w_{n_{l-1}n_l}}} \big)^{s+1} = \frac{1}{S} \cdot \sum_{s}^S{\frac{\partial C}{\partial {w_{n_{l-1}n_l}}}}
-& \end{flalign}$$
 
 ## Cost Functions:
 ### Quadratic Cost:
