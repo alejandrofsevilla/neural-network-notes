@@ -130,7 +130,7 @@ $$
 
 Where typically:
 
-$\large \tau=0.01 $
+$$ \large \tau=0.01 $$
 
 ### Sigmoid:
 <p align="center">
@@ -229,15 +229,15 @@ $$
 
 Where typically:
 
-$\large m_0 = 0 $ 
+$$ \large m_0 = 0 $$
 
-$\large v_0 = 0 $
+$$ \large v_0 = 0 $$
 
-$\large \epsilon = 10^{-8} $ 
+$$ \large \epsilon = 10^{-8} $$
 
-$\large \beta_1 = 0.9 $
+$$ \large \beta_1 = 0.9 $$
 
-$\large \beta_2 = 0.999 $
+$$ \large \beta_2 = 0.999 $$
 
 ## Regularization:
 Extra terms are added to the cost function in order to prevent over-fitting.
