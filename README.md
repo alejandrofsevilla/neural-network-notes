@@ -72,20 +72,24 @@ $$
 
 ## Activation Functions:
 ### Binary Step:
+<p align="center">
+  <img src="https://github.com/alejandrofsevilla/neural_networks_cheat_sheet/assets/110661590/298db2aa-8a86-46c4-b59b-9312685d7ebd" alt="drawing" width="500"/>
+</p>
+
 $$ \large
 \begin{split}A \big(z\big) = \begin{Bmatrix} 1 & z ≥ 0 \\
  0 & z < 0 \end{Bmatrix}\end{split}
 $$
-
-<p align="center">
-  <img src="https://github.com/alejandrofsevilla/neural_networks_cheat_sheet/assets/110661590/1282d695-f605-453f-9e83-02d6b5c3bb9b" />
-</p>
 
 $$ \large 
 \dot A \big(z\big) = 0
 $$
 
 ### Linear:
+<p align="center">
+  <img src="https://github.com/alejandrofsevilla/neural_networks_cheat_sheet/assets/110661590/63038915-6d89-47e4-ae3c-fee5258c1a5b" alt="drawing" width="500"/>
+</p>
+
 $$ \large
 A \big(z\big) = z
 $$
@@ -95,6 +99,10 @@ $$ \large
 $$
 
 ### ReLU (Rectified Linear Unit):
+<p align="center">
+  <img src="https://github.com/alejandrofsevilla/neural_networks_cheat_sheet/assets/110661590/49f87385-4b0f-4945-a64f-6833469d0381" alt="drawing" width="500"/>
+</p>
+
 $$ \large
 \begin{split}A \big(z\big) = \begin{Bmatrix} z & z > 0 \\
  0 & z ≤ 0 \end{Bmatrix}\end{split}
@@ -106,17 +114,29 @@ $$ \large
 $$
 
 ### Leaky ReLU:
+<p align="center">
+  <img src="https://github.com/alejandrofsevilla/neural_networks_cheat_sheet/assets/110661590/3d41c6af-b516-4614-af46-1a1344738fab" alt="drawing" width="500"/>
+</p>
+
 $$ \large
-\begin{split}A \big(z\big) = \begin{Bmatrix} z & z > 0 \\
- 0.01 \cdot z & z ≤ 0 \end{Bmatrix}\end{split}
+\begin{split}A \big(z, \tau \big) = \begin{Bmatrix} z & z > 0 \\
+\tau \cdot z & z ≤ 0 \end{Bmatrix}\end{split}
 $$
 
 $$ \large
-\begin{split}\dot A \big(z\big) = \begin{Bmatrix} 1 & z > 0 \\
- 0.01 & z ≤ 0 \end{Bmatrix}\end{split}
+\begin{split}\dot A \big(z, \tau \big) = \begin{Bmatrix} 1 & z > 0 \\
+\tau & z ≤ 0 \end{Bmatrix}\end{split}
 $$
+
+Where typically:
+
+$\large \tau=0.01 $
 
 ### Sigmoid:
+<p align="center">
+  <img src="https://github.com/alejandrofsevilla/neural_networks_cheat_sheet/assets/110661590/644dee7c-100e-4b24-b8ba-6e2e659135a9" alt="drawing" width="500"/>
+</p>
+
 $$ \large
 A \big(z\big) = \frac{1} {1 + e^{-z}}
 $$
@@ -126,6 +146,10 @@ $$ \large
 $$
 
 ### Tanh (Hyperbolic Tangent):
+<p align="center">
+  <img src="https://github.com/alejandrofsevilla/neural_networks_cheat_sheet/assets/110661590/eefc2afd-2c7c-4a2d-8ffd-c4a9efdc2c8e" alt="drawing" width="500"/>
+</p>
+
 $$ \large
 A \big(z\big) = \frac{e^{z} - e^{-z}}{e^{z} + e^{-z}}
 $$
