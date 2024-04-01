@@ -12,6 +12,7 @@ $\large w_{n_{l-1}n_l}$ *= weight between neurons* $n_{l-1}$ *and* $n_l$\
 $\large b_{n_l}$ *= bias of neuron* $n_l$\
 $\large z_{n_l}$ *= intermediate quantity of neuron* $n_l$\
 $\large y_{n_l}$ *= output of neuron* $n_l$\
+$\large x_n$ *= input neuron* $n$\
 $\large \hat y_{n_l}$ = *target output of neuron* $n_l$\
 $\large A$ *= activation function at neuron* $n_l$ *{Step, Linear, ReLU, Sigmoid, Tanh...}*\
 $\large C$ *= cost function {MSE, SSE, WSE, NSE...}*\
@@ -235,21 +236,40 @@ $$ \large \beta_2 = 0.999 $$
 see:
 * https://towardsdatascience.com/optimizers-for-training-neural-network-59450d71caf6
 
+## Feature Scaling
+### Normalization
+
+$$ \large
+x_n = \frac{x-x_{min}}{x_{max}-x_{min}}
+$$
 
 ## Regularization:
-Extra terms are added to the cost function in order to prevent over-fitting.
-
+Extra terms are added to the cost function in order to address over-fitting.
 ### L2:
 
 $$ \large
-\Delta C = \frac{\lambda}{2n} \sum^W w^2
+C_{n_l} \big(y, \hat y\big) = C \big(y, \hat y\big) + \frac{\lambda}{2 \cdot N_{l-1}} \cdot \sum_{n_{l-1}}^{N_{l-1}} w_{n_{l-1}n_l}^2
 $$
 
-$\large \lambda$ *= regularization rate* \
-$\large W=$  *total number of weights in the network* \
+$$ \large
+\dot C_{n_l} \big(y, \hat y\big) = \dot C \big(y, \hat y\big) + \lambda \cdot \sum_{n_{l-1}}^{N_{l-1}} w_{n_{l-1}n_l}
+$$
+
+### L1:
+
+$$ \large
+C_{n_l} \big(y, \hat y\big) = C \big(y, \hat y\big) + \lambda \cdot \sum_{n_{l-1}}^{N_{l-1}} |w_{n_{l-1}n_l}|
+$$
+
+$$ \large
+\dot C_{n_l} \big(y, \hat y\big) = \dot C \big(y, \hat y\big) ± \lambda 
+$$
+
+where:
+$\large \lambda$ *= regularization rate*
 
 ## References:
 * http://neuralnetworksanddeeplearning.com/ \
-
-
+* https://www.analyticsvidhya.com/blog/2020/04/feature-scaling-machine-learning-normalization-standardization/
+* https://comsm0045-applied-deep-learning.github.io/Slides/COMSM0045_05.pdf
 
