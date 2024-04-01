@@ -244,9 +244,6 @@ $$ \large
 \dot C_{n_l} \big(y, \hat y\big) = \dot C \big(y, \hat y\big) ± \lambda 
 $$
 
-where:\
-$\large \lambda$ *= regularization rate*
-
 ## References:
 * http://neuralnetworksanddeeplearning.com/
 * https://www.analyticsvidhya.com/blog/2020/04/feature-scaling-machine-learning-normalization-standardization/
