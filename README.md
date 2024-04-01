@@ -229,6 +229,11 @@ $$ \large \beta_1 = 0.9 $$
 
 $$ \large \beta_2 = 0.999 $$
 
+### Other Optimization Functions
+see:
+* https://towardsdatascience.com/optimizers-for-training-neural-network-59450d71caf6
+
+
 ## Regularization:
 Extra terms are added to the cost function in order to prevent over-fitting.
 
