@@ -158,6 +158,10 @@ $$ \large
 \dot A \big(z\big) = 1 - {A(z)}^2 
 $$
 
+### Other Activation Functions:
+
+see: https://keras.io/api/layers/activations/
+
 ## Cost Functions:
 ### Quadratic Cost:
 
