@@ -24,17 +24,17 @@ $\large α$ *= learning rate*
   <img src="https://github.com/alejandrofsevilla/neural_network_notes/assets/110661590/2522d49c-d13d-4544-b7bb-59072d4dabf4" />
 </p>
 
-### Neuron Intermediate Quantity:
+### Neuron Intermediate Quantity
 $$ \large 
 z_{n_l} = \sum_{n_{l-1}}^{N_{l-1}}(w_{n_{l-1}n_l} \cdot y_{n_{l-1}} + b_{n_l}) 
 $$
-### Neuron Output:
+### Neuron Output
 $$ \large
 y_{n_l} = A_{n_l}\big(z_{n_l}\big)
 $$
 
 
-## Optimization Algorithm:
+## Optimization Algorithm
 In order to reduce the errors of the network, weights and biases are updated after a certain period, through an optimization function $O$, which is a function of the derivatives of the cost function $C$ with respect to the network parameters:
 
 $$ \large
@@ -46,7 +46,7 @@ $$ \large
 \Delta b_{n_l} = - α \cdot O\big(\frac {\partial C}{\partial {b_{n_l}}}\big)
 $$
 
-### Chain Rule:
+### Chain Rule
 The chain rule allows to separate the derivatives of the cost function into components:
 
 $$ \large
@@ -71,8 +71,8 @@ $$ \large
 \dot C \big( y, \hat y \big) = \sum_{n_{l+1}}^{N_{l+1}} w_{n_{l}n_{l+1}} \cdot \dot C \big( y_{n_{l+1}}, \hat y_{n_{l+1}} \big) 
 $$
 
-## Activation Functions:
-### Binary Step:
+## Activation Functions
+### Binary Step
 <p align="center">
   <img src="https://github.com/alejandrofsevilla/neural_networks_cheat_sheet/assets/110661590/298db2aa-8a86-46c4-b59b-9312685d7ebd" alt="drawing" width="500"/>
 </p>
@@ -86,7 +86,7 @@ $$ \large
 \dot A \big(z\big) = 0
 $$
 
-### Linear:
+### Linear
 <p align="center">
   <img src="https://github.com/alejandrofsevilla/neural_networks_cheat_sheet/assets/110661590/63038915-6d89-47e4-ae3c-fee5258c1a5b" alt="drawing" width="500"/>
 </p>
@@ -99,7 +99,7 @@ $$ \large
 \dot A \big(z\big) = 1
 $$
 
-### ReLU (Rectified Linear Unit):
+### ReLU (Rectified Linear Unit)
 <p align="center">
   <img src="https://github.com/alejandrofsevilla/neural_networks_cheat_sheet/assets/110661590/49f87385-4b0f-4945-a64f-6833469d0381" alt="drawing" width="500"/>
 </p>
@@ -114,7 +114,7 @@ $$ \large
  0 & z ≤ 0 \end{Bmatrix}\end{split}
 $$
 
-### Leaky ReLU:
+### Leaky ReLU
 <p align="center">
   <img src="https://github.com/alejandrofsevilla/neural_networks_cheat_sheet/assets/110661590/3d41c6af-b516-4614-af46-1a1344738fab" alt="drawing" width="500"/>
 </p>
@@ -133,7 +133,7 @@ where typically:
 
 $$ \large \tau=0.01 $$
 
-### Sigmoid:
+### Sigmoid
 <p align="center">
   <img src="https://github.com/alejandrofsevilla/neural_networks_cheat_sheet/assets/110661590/644dee7c-100e-4b24-b8ba-6e2e659135a9" alt="drawing" width="500"/>
 </p>
@@ -146,7 +146,7 @@ $$ \large
 \dot A \big(z\big) = A(z) \cdot (1-A(z))
 $$
 
-### Tanh (Hyperbolic Tangent):
+### Tanh (Hyperbolic Tangent)
 <p align="center">
   <img src="https://github.com/alejandrofsevilla/neural_networks_cheat_sheet/assets/110661590/eefc2afd-2c7c-4a2d-8ffd-c4a9efdc2c8e" alt="drawing" width="500"/>
 </p>
@@ -159,11 +159,6 @@ $$ \large
 \dot A \big(z\big) = 1 - {A(z)}^2 
 $$
 
-### Other Activation Functions:
-see: 
-* https://en.wikipedia.org/wiki/Activation_function#Table_of_activation_functions 
-* https://keras.io/api/layers/activations/
-
 ## Cost Functions:
 ### Quadratic Cost:
 
@@ -175,7 +170,7 @@ $$ \large
 \dot C\big(y, \hat y\big) = \big(y - \hat y\big)
 $$
 
-### Cross Entropy Cost:
+### Cross Entropy Cost
 $$ \large
 C\big(y, \hat y\big) = -\big({\hat y} \text{ ln } y + (1 - {\hat y}) \cdot \text{ ln }(1-y)\big)
 $$
@@ -184,11 +179,7 @@ $$ \large
 \dot C\big(y, \hat y\big) = \frac{y - \hat y}{(1-y) \cdot y}
 $$
 
-### Other Cost Functions:
-see: 
-* https://stats.stackexchange.com/questions/154879/a-list-of-cost-functions-used-in-neural-networks-alongside-applications
-
-## Optimization Functions:
+## Optimization Functions
 ### Gradient Descend:
 Network parameters are updated after every training batch $S$, averaging across all training samples.
 
@@ -196,14 +187,14 @@ $$ \large
 O \big( \frac{\partial C}{\partial {w_{n_{l-1}n_l}}} \big) = \frac{1}{S} \cdot \sum_{s}^S{\frac{\partial C}{\partial {w_{n_{l-1}n_l}}}}
 $$
 
-### Stochastic Gradient Descend:
+### Stochastic Gradient Descend
 It is a gradient descend performed after every training sample $s$.
 
 $$ \large
 O \big( \frac{\partial C}{\partial {w_{n_{l-1}n_l}}} \big) = \frac{\partial C}{\partial {w_{n_{l-1}n_l}}}
 $$
 
-### ADAM (Adaptive Moment Estimation):
+### ADAM (Adaptive Moment Estimation)
 Network parameters are updated after every training batch $S$, with an adapted value of the cost function derivatives.
 
 $$ \large
@@ -232,10 +223,6 @@ $$ \large \beta_1 = 0.9 $$
 
 $$ \large \beta_2 = 0.999 $$
 
-### Other Optimization Functions
-see:
-* https://towardsdatascience.com/optimizers-for-training-neural-network-59450d71caf6
-
 ## Feature Scaling
 ### Normalization
 Mitigating the influence of varying scales on machine learning models.
@@ -250,7 +237,7 @@ $$ \large
 x_n = \frac{x-\overline x}{x_{max}-x_{min}}
 $$
 
-## Regularization:
+## Regularization
 Extra terms are added to the cost function in order to address overfitting.
 ### L2:
 
@@ -262,7 +249,7 @@ $$ \large
 \dot C_{n_l} \big(y, \hat y\big) = \dot C \big(y, \hat y\big) + \lambda \cdot \sum_{n_{l-1}}^{N_{l-1}} w_{n_{l-1}n_l}
 $$
 
-### L1:
+### L1
 
 $$ \large
 C_{n_l} \big(y, \hat y\big) = C \big(y, \hat y\big) + \lambda \cdot \sum_{n_{l-1}}^{N_{l-1}} |w_{n_{l-1}n_l}|
@@ -272,11 +259,14 @@ $$ \large
 \dot C_{n_l} \big(y, \hat y\big) = \dot C \big(y, \hat y\big) ± \lambda 
 $$
 
-where:
+where:\
 $\large \lambda$ *= regularization rate*
 
 ## References:
 * http://neuralnetworksanddeeplearning.com/
 * https://www.analyticsvidhya.com/blog/2020/04/feature-scaling-machine-learning-normalization-standardization/
 * https://comsm0045-applied-deep-learning.github.io/Slides/COMSM0045_05.pdf
+* https://towardsdatascience.com/optimizers-for-training-neural-network-59450d71caf6
+* https://stats.stackexchange.com/questions/154879/a-list-of-cost-functions-used-in-neural-networks-alongside-applications
+* https://en.wikipedia.org/wiki/Activation_function#Table_of_activation_functions 
 
