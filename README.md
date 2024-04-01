@@ -128,7 +128,7 @@ $$ \large
 \tau & z ≤ 0 \end{Bmatrix}\end{split}
 $$
 
-Where typically:
+where typically:
 
 $$ \large \tau=0.01 $$
 
@@ -209,6 +209,8 @@ $$ \large
 O \big( \frac{\partial C}{\partial {w_{n_{l-1}n_l}}} \big) = \frac{m_t}{\sqrt{v_t}+\epsilon}
 $$
 
+where:
+
 $$ \large
 m_t = \beta_1 \cdot m_{t-1} + (1+\beta_1) \cdot \big( \frac{1}{S} \cdot \sum_{s}^S{\frac{\partial C}{\partial {w_{n_{l-1}n_l}}}} \big)
 $$
@@ -217,7 +219,7 @@ $$ \large
 v_t = \beta_2 \cdot v_{t-1} + (1+\beta_2) \cdot \big( \frac{1}{S} \cdot \sum_{s}^S{\frac{\partial C}{\partial {w_{n_{l-1}n_l}}}} \big)
 $$
 
-Where typically:
+where typically:
 
 $$ \large m_0 = 0 $$
 
