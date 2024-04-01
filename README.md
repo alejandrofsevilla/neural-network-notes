@@ -160,7 +160,9 @@ $$
 
 ### Other Activation Functions:
 
-see: https://keras.io/api/layers/activations/
+see: 
+https://en.wikipedia.org/wiki/Activation_function#Table_of_activation_functions
+https://keras.io/api/layers/activations/
 
 ## Cost Functions:
 ### Quadratic Cost:
