@@ -2,21 +2,21 @@
 
 ## List of Symbols
 
-*s = sample*\
-*S = number of samples in training batch*\
-*l = layer*\
-*L = number of layers*\
-$n_l$ *= neuron at layer l*\
-$N_l$ *= number of neurons in layer l*\
-$w_{n_{l-1}n_l}$ *= weight between neurons* $n_{l-1}$ *and* $n_l$\
-$b_{n_l}$ *= bias of neuron* $n_l$\
-$z_{n_l}$ *= intermediate quantity of neuron* $n_l$\
-$y_{n_l}$ *= output of neuron* $n_l$\
-$\hat y_{n_l}$ *= target output of neuron* $n_l$\
-$A$ *= activation function at neuron* $n_l$ *{Step, Linear, ReLU, Sigmoid, Tanh...}*\
-$C$ *= cost function {MSE, SSE, WSE, NSE...}*\
-$O$ *= optimization function {Gradient Descend, ADAM, Quasi Newton Method...}*\
-$α$ *= learning rate*
+$\large s$ *= sample*\
+$\large S$ *= number of samples in training batch*\
+$\large l$ *= layer*\
+$\large L$ *= number of layers*\
+$\large n_l$ *= neuron at layer l*\
+$\large N_l$ *= number of neurons in layer l*\
+$\large w_{n_{l-1}n_l}$ *= weight between neurons* $n_{l-1}$ *and* $n_l$\
+$\large b_{n_l}$ *= bias of neuron* $n_l$\
+$\large z_{n_l}$ *= intermediate quantity of neuron* $n_l$\
+$\large y_{n_l}$ *= output of neuron* $n_l$\
+$\large \hat y_{n_l}$ = *target output of neuron* $n_l$\
+$\large A$ *= activation function at neuron* $n_l$ *{Step, Linear, ReLU, Sigmoid, Tanh...}*\
+$\large C$ *= cost function {MSE, SSE, WSE, NSE...}*\
+$\large O$ *= optimization function {Gradient Descend, ADAM, Quasi Newton Method...}*\
+$\large α$ *= learning rate*
 
 ## Neuron Equations
 <p align="center">
@@ -76,6 +76,10 @@ $$ \large
 \begin{split}A \big(z\big) = \begin{Bmatrix} 1 & z ≥ 0 \\
  0 & z < 0 \end{Bmatrix}\end{split}
 $$
+
+<p align="center">
+  <img src="https://github.com/alejandrofsevilla/neural_networks_cheat_sheet/assets/110661590/1282d695-f605-453f-9e83-02d6b5c3bb9b" />
+</p>
 
 $$ \large 
 \dot A \big(z\big) = 0
@@ -220,7 +224,7 @@ $$ \large
 \Delta C = \frac{\lambda}{2n} \sum^W w^2
 $$
 
-$\large \lambda=$ *regularization rate* \
+$\large \lambda$ *= regularization rate* \
 $\large W=$  *total number of weights in the network* \
 
 ## References:
