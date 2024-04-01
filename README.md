@@ -12,7 +12,7 @@ $\large w_{n_{l-1}n_l}$ *= weight between neurons* $n_{l-1}$ *and* $n_l$\
 $\large b_{n_l}$ *= bias of neuron* $n_l$\
 $\large z_{n_l}$ *= intermediate quantity of neuron* $n_l$\
 $\large y_{n_l}$ *= output of neuron* $n_l$\
-$\large x_n$ *= input neuron* $n$\
+$\large x_n$ *= input neuron* $n$ *in the first layer*\
 $\large \hat y_{n_l}$ = *target output of neuron* $n_l$\
 $\large A$ *= activation function at neuron* $n_l$ *{Step, Linear, ReLU, Sigmoid, Tanh...}*\
 $\large C$ *= cost function {MSE, SSE, WSE, NSE...}*\
@@ -238,13 +238,20 @@ see:
 
 ## Feature Scaling
 ### Normalization
+Mitigating the influence of varying scales on machine learning models.
 
 $$ \large
 x_n = \frac{x-x_{min}}{x_{max}-x_{min}}
 $$
 
+### Standarization
+
+$$ \large
+x_n = \frac{x-\overline x}{x_{max}-x_{min}}
+$$
+
 ## Regularization:
-Extra terms are added to the cost function in order to address over-fitting.
+Extra terms are added to the cost function in order to address overfitting.
 ### L2:
 
 $$ \large
@@ -269,7 +276,7 @@ where:
 $\large \lambda$ *= regularization rate*
 
 ## References:
-* http://neuralnetworksanddeeplearning.com/ \
+* http://neuralnetworksanddeeplearning.com/
 * https://www.analyticsvidhya.com/blog/2020/04/feature-scaling-machine-learning-normalization-standardization/
 * https://comsm0045-applied-deep-learning.github.io/Slides/COMSM0045_05.pdf
 
