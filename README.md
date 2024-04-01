@@ -29,16 +29,17 @@ z_{n_l} = \sum_{n_{l-1}}^{N_{l-1}}(w_{n_{l-1}n_l} \cdot y_{n_{l-1}} + b_{n_l})
 $$
 ### Neuron Output:
 $$ \Large
-y_{n_l} = A\big(z_{n_l}\big)
+y_{n_l} = A_{n_l}\big(z_{n_l}\big)
 $$
 
 
 ## Optimization Algorithm:
-In order to reduce the errors of the network, weights and biases are updated after a certain period through an optimization equation $O$, which is a function of the derivatives of the cost function $C$ with respect to the network parameters:
+In order to reduce the errors of the network, weights and biases are updated after a certain period, through an optimization function $O$, which is a function of the derivatives of the cost function $C$ with respect to the network parameters:
 
 $$ \Large
 \Delta w_{n_{l-1}n_l} = - α \cdot O\big(\frac {\partial C}{\partial {w_{n_{l-1}n_l}}}\big)
 $$
+
 
 $$ \Large
 \Delta b_{n_l} = - α \cdot O\big(\frac {\partial C}{\partial {b_{n_l}}}\big)
@@ -50,20 +51,16 @@ The chain rule allows to separate the derivatives described above into component
 $$ \Large
 \frac {\partial C}{\partial {w_{n_{l-1}n_l}}} 
 = \frac{\partial C}{\partial z_{n_l}} \cdot \frac{\partial z_{n_l}}{\partial {w_{n_{l-1}n_l}}}
-= \frac{\partial C}{\partial z_{n_l}} \cdot y_{n_{l-1}}
 = \frac{\partial C}{\partial y_{n_l}} \cdot \frac{\partial y_{n_l}}{\partial z_{n_l}} \cdot y_{n_{l-1}}
+= \dot C\big(y_{n_l}, \hat y_{n_l}\big) \cdot \dot A_{n_l}\big(z_{n_l}\big) \cdot y_{n_{l-1}}
 $$
 
 $$ \Large
-= \dot C\big(y_{n_l}, \hat y_{n_l}\big) \cdot \dot A\big(z_{n_l}\big) \cdot y_{n_{l-1}}
-$$
-
-$$ \Large
-\frac {\partial C}{\partial {b}} 
+\frac {\partial C}{\partial {b_{n_l}}} 
 = \frac{\partial C}{\partial z_{n_l}}
 = \frac{\partial C}{\partial z_{n_l}}
 = \frac{\partial C}{\partial y_{n_l}} \cdot \frac{\partial y_{n_l}}{\partial z_{n_l}}
-= \dot C\big(y_{n_l}, \hat y_{n_l}\big) \cdot \dot A\big(z_{n_l}\big)
+= \dot C\big(y_{n_l}, \hat y_{n_l}\big) \cdot \dot A_{n_l}\big(z_{n_l}\big)
 $$
 
 ### Backpropagation
