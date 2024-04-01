@@ -183,24 +183,9 @@ $$ \large
 \dot C\big(y, \hat y\big) = \frac{y - \hat y}{(1-y) \cdot y}
 $$
 
-### Exponential Cost:
-$$ \large
-C \big( y, \hat y, \tau \big) = \tau \cdot \exp(\frac{1}{\tau} (y - \hat y)^2)
-$$
-
-$$ \large
-\dot C \big( y, \hat y, \tau \big) = \frac{2}{\tau} \big( y - \hat y \big) \cdot C\big(y, \hat y, \tau \big)
-$$
-
-### Hellinger Distance:
-
-$$ \large
-C\big(y, \hat y\big) = \dfrac{1}{\sqrt{2}} \big(\sqrt{y} - \sqrt{\hat{y}} \big)^2
-$$
-
-$$ \large
-\dot C\big(y, \hat y\big) = \dfrac{\sqrt{y} - \sqrt{\hat y}}{\sqrt{2} \cdot \sqrt{y} }
-$$
+### Other Cost Functions:
+see: 
+* https://stats.stackexchange.com/questions/154879/a-list-of-cost-functions-used-in-neural-networks-alongside-applications
 
 ## Optimization Functions:
 ### Gradient Descend:
@@ -257,10 +242,7 @@ $\large \lambda$ *= regularization rate* \
 $\large W=$  *total number of weights in the network* \
 
 ## References:
-https://en.wikipedia.org/wiki/Activation_function#Table_of_activation_functions \
-http://neuralnetworksanddeeplearning.com/ \
-https://stats.stackexchange.com/questions/154879/a-list-of-cost-functions-used-in-neural-networks-alongside-applications \
-https://towardsdatascience.com/optimizers-for-training-neural-network-59450d71caf6
+* http://neuralnetworksanddeeplearning.com/ \
 
 
 
