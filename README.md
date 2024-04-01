@@ -224,7 +224,8 @@ $$ \large \beta_2 = 0.999 $$
 
 ## Regularization
 Extra terms are added to the cost function in order to address overfitting.
-### L2:
+
+### L2
 
 $$ \large
 C_{n_l} \big(y, \hat y\big) = C \big(y, \hat y\big) + \frac{\lambda}{2 \cdot N_{l-1}} \cdot \sum_{n_{l-1}}^{N_{l-1}} w_{n_{l-1}n_l}^2
