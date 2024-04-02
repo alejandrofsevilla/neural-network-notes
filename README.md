@@ -67,7 +67,7 @@ $$
 The terms $\large \dot C \big(y_{n_l} \hat y_{n_l}\big)$ depend on the output target value for each neuron, $\large\hat y_{n_l}$. However, a training data set only counts on the value of $\large \hat y_{n_l}$ for the last layer, where $\large l = L$. Instead, for all previous layers  $\large l < L$, components $\large \dot C \big( y_{n_l}, \hat y_{n_l} \big)$ are computed as a weighted sum of the components obtained for the following layer $\large \dot C \big(y_{n_{l+1}}, \hat y_{n_{l+1}}\big)$ :
 
 $$ \large
-\dot C \big( y, \hat y \big) = \sum_{n_{l+1}}^{N_{l+1}} w_{n_{l}n_{l+1}} \cdot \dot C \big( y_{n_{l+1}}, \hat y_{n_{l+1}} \big) 
+\dot C \big( y_{n_l}, \hat y_{n_l} \big) = \sum_{n_{l+1}}^{N_{l+1}} w_{n_{l}n_{l+1}} \cdot \dot C \big( y_{n_{l+1}}, \hat y_{n_{l+1}} \big) 
 $$
 
 ## Activation Functions
