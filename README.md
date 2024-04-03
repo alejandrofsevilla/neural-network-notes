@@ -245,11 +245,11 @@ $$ \large
 \dot C_{n_l} \big(y, \hat y\big) = \dot C \big(y, \hat y\big) ± \lambda 
 $$
 
-## References:
-* http://neuralnetworksanddeeplearning.com/
-* https://www.analyticsvidhya.com/blog/2020/04/feature-scaling-machine-learning-normalization-standardization/
-* https://comsm0045-applied-deep-learning.github.io/Slides/COMSM0045_05.pdf
-* https://towardsdatascience.com/optimizers-for-training-neural-network-59450d71caf6
-* https://stats.stackexchange.com/questions/154879/a-list-of-cost-functions-used-in-neural-networks-alongside-applications
-* https://en.wikipedia.org/wiki/Activation_function#Table_of_activation_functions 
+## References
+http://neuralnetworksanddeeplearning.com/ \
+https://www.analyticsvidhya.com/blog/2020/04/feature-scaling-machine-learning-normalization-standardization/ \
+https://comsm0045-applied-deep-learning.github.io/Slides/COMSM0045_05.pdf \
+https://towardsdatascience.com/optimizers-for-training-neural-network-59450d71caf6 \
+https://stats.stackexchange.com/questions/154879/a-list-of-cost-functions-used-in-neural-networks-alongside-applications \
+https://en.wikipedia.org/wiki/Activation_function#Table_of_activation_functions
 
