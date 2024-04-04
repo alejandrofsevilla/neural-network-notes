@@ -33,7 +33,7 @@ y_{n_l} = A_{n_l}\big(z_{n_l}\big)
 $$
 
 ## Optimization Algorithm
-In order to reduce the errors of the network, weights and biases are adjusted to minimize the cost function $C$. This is done by an optimization algorithm $O$, that iteratively modifies the network after running a certain number of training samples.
+In order to reduce the errors of the network, weights and biases are adjusted to minimize the cost function $C$. This is done by an optimization algorithm $O$, that modifies the network parameters after running a certain number of training samples.
 Weights and biases are modified depending on their influence in the cost function, which is measured by the derivatives of the cost function $\large \frac {\partial C}{\partial {w_{n_{l-1}n_l}}}$ and $\large \frac {\partial C}{\partial {b_{n_l}}}$.
 
 $$ \large
