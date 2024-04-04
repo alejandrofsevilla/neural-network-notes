@@ -15,7 +15,7 @@ $\large y_{n_l}$ *= output of neuron* $n_l$\
 $\large \hat y_{n_l}$ = *target output of neuron* $n_l$\
 $\large A_{n_l}$ *= activation function at neuron* $n_l$ *{Binary Step, Linear, ReLU, Sigmoid, Tanh...}*\
 $\large C$ *= cost function {MSE, SSE, WSE, NSE...}*\
-$\large O$ *= optimization function {Gradient Descend, ADAM, Quasi Newton Method...}*\
+$\large O$ *= optimization Algorithm {Gradient Descend, ADAM, Quasi Newton Method...}*\
 $\large α$ *= learning rate*
 
 ## Neuron Equations
@@ -32,14 +32,12 @@ $$ \large
 y_{n_l} = A_{n_l}\big(z_{n_l}\big)
 $$
 
-
 ## Optimization Algorithm
-In order to reduce the errors of the network, quantified by the const function $C$, weights and biases are updated during training after a certain period by an optimization function $O$:
+In order to reduce the errors of the network, therefore minimize the const function $C$, weights and biases are updated during training after a certain period by an optimization algorithm $O$:
 
 $$ \large
 \Delta w_{n_{l-1}n_l} = - α \cdot O\big(\frac {\partial C}{\partial {w_{n_{l-1}n_l}}}\big)
 $$
-
 
 $$ \large
 \Delta b_{n_l} = - α \cdot O\big(\frac {\partial C}{\partial {b_{n_l}}}\big)
@@ -178,7 +176,30 @@ $$ \large
 \dot C\big(y, \hat y\big) = \frac{y - \hat y}{(1-y) \cdot y}
 $$
 
-## Optimization Functions
+## Regularization
+Extra terms are added to the cost function in order to address overfitting.
+
+### L2
+
+$$ \large
+C_{n_l} \big(y, \hat y\big) = C \big(y, \hat y\big) + \frac{\lambda}{2 \cdot N_{l-1}} \cdot \sum_{n_{l-1}}^{N_{l-1}} w_{n_{l-1}n_l}^2
+$$
+
+$$ \large
+\dot C_{n_l} \big(y, \hat y\big) = \dot C \big(y, \hat y\big) + \lambda \cdot \sum_{n_{l-1}}^{N_{l-1}} w_{n_{l-1}n_l}
+$$
+
+### L1
+
+$$ \large
+C_{n_l} \big(y, \hat y\big) = C \big(y, \hat y\big) + \lambda \cdot \sum_{n_{l-1}}^{N_{l-1}} |w_{n_{l-1}n_l}|
+$$
+
+$$ \large
+\dot C_{n_l} \big(y, \hat y\big) = \dot C \big(y, \hat y\big) ± \lambda 
+$$
+
+## Optimization Algorithms
 ### Gradient Descend
 Network parameters are updated after every training batch $S$, averaging across all training samples.
 
@@ -221,29 +242,6 @@ $$ \large \epsilon = 10^{-8} $$
 $$ \large \beta_1 = 0.9 $$
 
 $$ \large \beta_2 = 0.999 $$
-
-## Regularization
-Extra terms are added to the cost function in order to address overfitting.
-
-### L2
-
-$$ \large
-C_{n_l} \big(y, \hat y\big) = C \big(y, \hat y\big) + \frac{\lambda}{2 \cdot N_{l-1}} \cdot \sum_{n_{l-1}}^{N_{l-1}} w_{n_{l-1}n_l}^2
-$$
-
-$$ \large
-\dot C_{n_l} \big(y, \hat y\big) = \dot C \big(y, \hat y\big) + \lambda \cdot \sum_{n_{l-1}}^{N_{l-1}} w_{n_{l-1}n_l}
-$$
-
-### L1
-
-$$ \large
-C_{n_l} \big(y, \hat y\big) = C \big(y, \hat y\big) + \lambda \cdot \sum_{n_{l-1}}^{N_{l-1}} |w_{n_{l-1}n_l}|
-$$
-
-$$ \large
-\dot C_{n_l} \big(y, \hat y\big) = \dot C \big(y, \hat y\big) ± \lambda 
-$$
 
 ## References
 http://neuralnetworksanddeeplearning.com/ \
