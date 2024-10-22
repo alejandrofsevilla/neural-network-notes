@@ -158,7 +158,7 @@ $$ \large
 $$
 
 ## Cost Functions:
-### Quadratic Cost:
+### Quadratic Cost
 
 $$ \large
 C\big(y, \hat y\big) = \dfrac{1}{2} \big(y - \hat y\big)^2
