@@ -1,5 +1,14 @@
 # Neural Networks Cheat Sheet
 
+## Contents
+- [List of Symbols](https://github.com/alejandrofsevilla/neural_networks_cheat_sheet?tab=readme-ov-file#list-of-symbols)
+- [Neuron Equations](https://github.com/alejandrofsevilla/neural_networks_cheat_sheet?tab=readme-ov-file#neuron-equations)
+- [Training Algorithm](https://github.com/alejandrofsevilla/neural_networks_cheat_sheet?tab=readme-ov-file#network-training)
+- [Activation Functions](https://github.com/alejandrofsevilla/neural_networks_cheat_sheet?tab=readme-ov-file#activation-functions)
+- [Cost Functions](https://github.com/alejandrofsevilla/neural_networks_cheat_sheet?tab=readme-ov-file#cost-functions)
+- [Optimization Algorithms](https://github.com/alejandrofsevilla/neural_networks_cheat_sheet?tab=readme-ov-file#optimization-algorithms)
+- [Regularization](https://github.com/alejandrofsevilla/neural_networks_cheat_sheet?tab=readme-ov-file#regularization)
+
 ## List of Symbols
 
 $\large s$ *= sample*\
@@ -32,7 +41,7 @@ $$ \large
 y_{n_l} = A_{n_l}\big(z_{n_l}\big)
 $$
 
-## Optimization Algorithm
+## Training Algorithm
 In order to reduce the errors of the network, weights and biases are adjusted to minimize the cost function $C$. This is done by an optimization algorithm $O$, that adjust the network parameters periodically after running a certain number of training samples.
 Weights and biases are modified depending on their influence in the cost function, measured by the derivatives ${\partial C}/{\partial {w_{n_{l-1}n_l}}}$ and ${\partial C}/{\partial {b_{n_l}}}$.
 
@@ -157,7 +166,7 @@ $$ \large
 \dot A \big(z\big) = 1 - {A(z)}^2 
 $$
 
-## Cost Functions:
+## Cost Functions
 
 ### Quadratic Cost
 $$\large C\big(y, \hat y\big) = 1/2 \cdot {\big(y - \hat y\big)^{\small 2}}$$
