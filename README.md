@@ -244,7 +244,7 @@ $$ \large m_0 = 0 $$
 
 $$ \large v_0 = 0 $$
 
-$$ \large \epsilon = 10^{\small -8} $$
+$$ \large \epsilon = 1/10^{\small 8} $$
 
 $$ \large \beta_1 = 0.9 $$
 
