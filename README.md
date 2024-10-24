@@ -1,4 +1,4 @@
-# Neural Networks Cheat Sheet
+# Neural Networks Notes
 
 ## Contents
 - [List of Symbols](https://github.com/alejandrofsevilla/neural_networks_cheat_sheet?tab=readme-ov-file#list-of-symbols)
