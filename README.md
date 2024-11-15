@@ -30,7 +30,7 @@ $\large α$ *= learning rate*
 
 ## Neuron Equations
 <p align="center">
-  <img src="https://github.com/alejandrofsevilla/neural_network_notes/assets/110661590/2522d49c-d13d-4544-b7bb-59072d4dabf4" />
+  <img src="https://github.com/user-attachments/assets/fe1d5008-b3ec-4791-8453-9bca7dad3007" />
 </p>
 
 ### Neuron Intermediate Quantity
@@ -82,7 +82,7 @@ $$
 ## Activation Functions
 ### Binary Step
 <p align="center">
-  <img src="https://github.com/alejandrofsevilla/neural_networks_cheat_sheet/assets/110661590/298db2aa-8a86-46c4-b59b-9312685d7ebd" alt="drawing" width="500"/>
+  <img src="https://github.com/user-attachments/assets/e46372d3-e7db-41c5-9229-a773b17a1d9b" alt="drawing" width="500"/>
 </p>
 
 $$ \large
@@ -96,7 +96,7 @@ $$
 
 ### Linear
 <p align="center">
-  <img src="https://github.com/alejandrofsevilla/neural_networks_cheat_sheet/assets/110661590/63038915-6d89-47e4-ae3c-fee5258c1a5b" alt="drawing" width="500"/>
+  <img src="https://github.com/user-attachments/assets/f4dceb90-73c4-4e40-83ac-0271ac412cff" alt="drawing" width="500"/>
 </p>
 
 $$ \large
@@ -109,7 +109,7 @@ $$
 
 ### ReLU (Rectified Linear Unit)
 <p align="center">
-  <img src="https://github.com/alejandrofsevilla/neural_networks_cheat_sheet/assets/110661590/49f87385-4b0f-4945-a64f-6833469d0381" alt="drawing" width="500"/>
+  <img src="https://github.com/user-attachments/assets/fc453862-5fd8-43a0-ac5d-57bdf318eee6" alt="drawing" width="500"/>
 </p>
 
 $$ \large
@@ -124,7 +124,7 @@ $$
 
 ### Leaky ReLU
 <p align="center">
-  <img src="https://github.com/alejandrofsevilla/neural_networks_cheat_sheet/assets/110661590/3d41c6af-b516-4614-af46-1a1344738fab" alt="drawing" width="500"/>
+  <img src="https://github.com/user-attachments/assets/13983fa3-bfe7-41b7-9c70-f6021eef33a2" alt="drawing" width="500"/>
 </p>
 
 $$ \large
@@ -143,7 +143,7 @@ $$ \large \tau=0.01 $$
 
 ### Sigmoid
 <p align="center">
-  <img src="https://github.com/alejandrofsevilla/neural_networks_cheat_sheet/assets/110661590/644dee7c-100e-4b24-b8ba-6e2e659135a9" alt="drawing" width="500"/>
+  <img src="https://github.com/user-attachments/assets/8758a47d-2494-4dde-a513-ae87a4f63d64" alt="drawing" width="500"/>
 </p>
 
 $$ \large
@@ -156,7 +156,7 @@ $$
 
 ### Tanh (Hyperbolic Tangent)
 <p align="center">
-  <img src="https://github.com/alejandrofsevilla/neural_networks_cheat_sheet/assets/110661590/eefc2afd-2c7c-4a2d-8ffd-c4a9efdc2c8e" alt="drawing" width="500"/>
+  <img src="https://github.com/user-attachments/assets/483cf2be-54d2-4a0f-9ca7-45d7252789b5" alt="drawing" width="500"/>
 </p>
 
 $$ \large
