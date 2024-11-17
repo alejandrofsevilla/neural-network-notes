@@ -197,7 +197,7 @@ $$ \large \mu_{\beta} = \frac {1}{S} \cdot \sum_{i=1}^{S} x_i $$
 
 $$ \large {σ_{\beta}}^2 = \frac {1}{S} \cdot \sum_{i=1}^{S} (x_i - \mu_{\beta})^2 $$ 
 
-Where $\mu_{\beta}$ and $\sigma_{\beta}$ are the mean and standard deviation respectively, for that mini batch, and $\epsilon$ is small positive values such us $10^{-7}$ to avoid zero division.
+Where $\mu_{\beta}$ and $\sigma_{\beta}$ are the mean and standard deviation respectively, for that mini batch, and $\epsilon$ is small positive value such us $10^{-7}$ to avoid zero division.
 
 
 ## Regularization
