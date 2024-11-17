@@ -183,6 +183,22 @@ $$ \large
 \dot C\big(y, \hat y\big) = \frac{y - \hat y}{(1-y) \cdot y}
 $$
 
+## Batch normalization
+Normalization is the process of adimensionalizing the input layer, which address a problem known as Internal Covariate Shift.
+
+$$ \large
+ \bar {x_i} = \frac{x_i-\mu_{\beta}}{\sqrt{{\sigma_{\beta}}^2+\epsilon}}
+$$
+
+With:
+
+$$ \large \mu_{\beta} = \frac {1}{S} \cdot \sum_{i=1}^{S} x_i $$ 
+
+$$ \large {σ_{\beta}}^2 = \frac {1}{S} \cdot \sum_{i=1}^{S} (x_i - \mu_{\beta})^2 $$ 
+
+Where $\mu_{\beta}$ and $\sigma_{\beta}$ are the mean and standard deviation respectively, for that mini batch, and $\epsilon$ is small positive values such us $10^{-7}$ to avoid zero division.
+
+
 ## Regularization
 Extra terms are added to the cost function in order to address overfitting.
 
