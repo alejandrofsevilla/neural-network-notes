@@ -6,6 +6,7 @@
 - [Training Algorithm](https://github.com/alejandrofsevilla/neural_networks_cheat_sheet?tab=readme-ov-file#training-algorithm)
 - [Activation Functions](https://github.com/alejandrofsevilla/neural_networks_cheat_sheet?tab=readme-ov-file#activation-functions)
 - [Cost Functions](https://github.com/alejandrofsevilla/neural_networks_cheat_sheet?tab=readme-ov-file#cost-functions)
+- [Normalization](https://github.com/alejandrofsevilla/neural_networks_cheat_sheet?tab=readme-ov-file#normalization)
 - [Regularization](https://github.com/alejandrofsevilla/neural_networks_cheat_sheet?tab=readme-ov-file#regularization)
 - [Optimization Algorithms](https://github.com/alejandrofsevilla/neural_networks_cheat_sheet?tab=readme-ov-file#optimization-algorithms)
 - [References](https://github.com/alejandrofsevilla/neural_networks_cheat_sheet?tab=readme-ov-file#references)
@@ -183,7 +184,7 @@ $$ \large
 \dot C\big(y, \hat y\big) = \frac{y - \hat y}{(1-y) \cdot y}
 $$
 
-## Batch normalization
+## Normalization
 Normalization is the process of adimensionalizing the input layer, which address a problem known as Internal Covariate Shift.
 
 $$ \large
@@ -273,4 +274,5 @@ $$ \large \beta_2 = 0.999 $$
 - https://towardsdatascience.com/optimizers-for-training-neural-network-59450d71caf6
 - https://stats.stackexchange.com/questions/154879/a-list-of-cost-functions-used-in-neural-networks-alongside-applications
 - https://en.wikipedia.org/wiki/Activation_function#Table_of_activation_functions
+- https://arxiv.org/abs/1502.03167
 
