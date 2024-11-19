@@ -296,4 +296,4 @@ After every transition, we use our network $[N]$ to select each action, $a = a(m
 - https://stats.stackexchange.com/questions/154879/a-list-of-cost-functions-used-in-neural-networks-alongside-applications
 - https://en.wikipedia.org/wiki/Activation_function#Table_of_activation_functions
 - https://arxiv.org/abs/1502.03167
-
+- https://www.samyzaf.com/ML/rl/qmaze.html
