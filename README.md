@@ -268,7 +268,15 @@ $$ \large \beta_1 = 0.9 $$
 $$ \large \beta_2 = 0.999 $$
 
 ## Reinforcement Learning.
-Given a model state $X$ and a set of possible actions $A$ for that state, a neural network computes the quality values $Q_a$ for each action $a$ so that the agent then can take the best possible action at that particular state, which will be given by the highest $Q_a$. The problem consist in finding how to train this neural network as the target ${Q_a}^\*$ values to train the network against, are in principle unknown. An iterative process is done in which a prediction for the target quality values ${Q_a}^\*$ is made and periodically updated.
+Also known as Q-Learning, it says that given a model state $X$ and a set of possible actions $A$ for that state, a neural network computes the quality values $Q_a$ for each action $a$ so that the agent then can take the best possible action at that particular state, which will be given by the highest $Q_a$. The problem consist in finding how to train this neural network as the target ${Q_a}^\*$ values to train the network against, are in principle unknown. An iterative process is done in which a prediction for the target quality values ${Q_a}^\*$ is made and periodically updated making use of the Bellman equation:
+
+$$ \large
+Q(s,a)=R(s,a)+max {Q(s')}
+$$
+
+Which states that the $Q$ value of taking an action $a$ at state $s$, is equal to the immediate reward of taking the action, $R(s,a)$, plus the best possible $Q$ value at the next state $s'$
+
+
 
 
 ## References
