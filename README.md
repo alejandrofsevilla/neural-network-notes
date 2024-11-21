@@ -288,7 +288,7 @@ After every transition, we use our network $[N]$ to select each action, $a = a(m
 classDiagram
 ActivationFunction <|-- StepActivationFunction
 ActivationFunction <|-- LinearActivationFunction
-ActivationFunction <|-- OtherActivationFunction
+ActivationFunction <|-- Etc
 <<Interface>> ActivationFunction
 ActivationFunction : +virtual computeOutput(double intermediateQuantity) double
 ActivationFunction : +virtual computeOutputDerivative(double intermediateQuantity) double
@@ -296,14 +296,13 @@ StepActivationFunction : +computeOutput(double intermediateQuantity) double
 StepActivationFunction : +computeOutputDerivative(double intermediateQuantity) double
 LinearActivationFunction : +computeOutput(double intermediateQuantity) double
 LinearActivationFunction : +computeOutputDerivative(double intermediateQuantity) double
-OtherActivationFunction : +computeOutput(double intermediateQuantity) double
-OtherActivationFunction : +computeOutputDerivative(double intermediateQuantity) double
+Etc : ...
 ```
 ```mermaid
 classDiagram
 CostFunction <|-- QuadraticCostFunction
 CostFunction <|-- EntropyCostFunction
-CostFunction <|-- OtherCostFunction
+CostFunction <|-- Etc
 <<Interface>> CostFunction
 CostFunction : +virtual computeCost(double output, double target) double
 CostFunction : +virtual computeCostDerivative(double output, double target) double
@@ -311,19 +310,18 @@ EntropyCostFunction : +computeCost(double output, double target) double
 EntropyCostFunction : +computeCostDerivative(double output, double target) double
 QuadraticCostFunction : +computeCost(double output, double target) double
 QuadraticCostFunction : +computeCostDerivative(double output, double target) double
-OtherCostFunction : +computeCost(double output, double target) double
-OtherCostFunction : +computeCostDerivative(double output, double target) double
+Etc : ...
 ```
 ```mermaid
 classDiagram
 OptimizationAlgorithm <|-- GradientDescendOptimizationAlgorithm
 OptimizationAlgorithm <|-- AdamOptimizationAlgorithm
-OptimizationAlgorithm <|-- OtherOptimizationAlgorithm
+OptimizationAlgorithm <|-- Etc
 <<Interface>> OptimizationAlgorithm
 OptimizationAlgorithm : +virtual computeWeightCorrection(vector~double~ batchOutputs, vector~double~ batchTargets) double
 GradientDescendOptimizationAlgorithm : +computeWeightCorrection(vector~double~ batchOutputs, vector~double~ batchTargets) double
 AdamOptimizationAlgorithm : +computeWeightCorrection(vector~double~ batchOutputs, vector~double~ batchTargets) double
-OtherOptimizationAlgorithm : +computeWeightCorrection(vector~double~ batchOutputs, vector~double~ batchTargets) double
+Etc : ...
 ```
 ```mermaid
 classDiagram
@@ -334,10 +332,9 @@ Batch: +vector~double~ targets
 
 class Episode
 Episode: +vector~double~ state
-Episode: +vector~double~ nextState
+Episode: +optional~vector~double~~ nextState
 Episode: +double reward
 Episode: +int actionId
-Episode: +bool isEndOfExperience
 ```
 ## References
 - http://neuralnetworksanddeeplearning.com/
