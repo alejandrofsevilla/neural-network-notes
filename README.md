@@ -296,7 +296,7 @@ StepActivationFunction : +computeOutput(double intermediateQuantity) double
 StepActivationFunction : +computeOutputDerivative(double intermediateQuantity) double
 LinearActivationFunction : +computeOutput(double intermediateQuantity) double
 LinearActivationFunction : +computeOutputDerivative(double intermediateQuantity) double
-Etc : ...
+Etc :  ...
 ```
 ```mermaid
 classDiagram
