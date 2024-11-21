@@ -282,7 +282,7 @@ Everytime the model is run, each step or transition {x, a, r, x'} is stored as p
 
 After every transition, we use our network $[N]$ to select each action, $a = a(max Q(x, a))$, where $Q_a=[N]x$. Then, we may use the same network (DQN) or a second network (DDQN-double DQN), to calculate the new $Q_a$ through the Bellman equation, giving us an updated target value to train the network. In DDQN the network used to run the model is trained after every transition, using the buffer replay states and corresponding target $Q$ values, while the network used in the Bellman equation is only trained after a few number of transitions. 
 
-## Classes
+## Possible Implementation
 ```mermaid
 %%{init: {"class": {"hideEmptyMembersBox": true}}}%%
 classDiagram
