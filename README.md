@@ -282,8 +282,7 @@ Everytime the model is run, each step or transition {x, a, r, x'} is stored as p
 
 After every transition, we use our network $[N]$ to select each action, $a = a(max Q(x, a))$, where $Q_a=[N]x$. Then, we may use the same network (DQN) or a second network (DDQN-double DQN), to calculate the new $Q_a$ through the Bellman equation, giving us an updated target value to train the network. In DDQN the network used to run the model is trained after every transition, using the buffer replay states and corresponding target $Q$ values, while the network used in the Bellman equation is only trained after a few number of transitions. 
 
-## Class Implementations
-
+## Classes
 ```mermaid
 %%{init: {"class": {"hideEmptyMembersBox": true}}}%%
 classDiagram
@@ -321,12 +320,25 @@ OptimizationAlgorithm <|-- GradientDescendOptimizationAlgorithm
 OptimizationAlgorithm <|-- AdamOptimizationAlgorithm
 OptimizationAlgorithm <|-- OtherOptimizationAlgorithm
 <<Interface>> OptimizationAlgorithm
-OptimizationAlgorithm : +virtual computeWeightCorrection(vector<double> batchOutputs, vector<double> batchTargets) double
-GradientDescendOptimizationAlgorithm : +computeWeightCorrection(vector<double> batchOutputs, vector<double> batchTargets) double
-AdamOptimizationAlgorithm : +computeWeightCorrection(vector<double> batchOutputs, vector<double> batchTargets) double
-OtherOptimizationAlgorithm : +computeWeightCorrection(vector<double> batchOutputs, vector<double> batchTargets) double
+OptimizationAlgorithm : +virtual computeWeightCorrection(vector~double~ batchOutputs, vector~double~ batchTargets) double
+GradientDescendOptimizationAlgorithm : +computeWeightCorrection(vector~double~ batchOutputs, vector~double~ batchTargets) double
+AdamOptimizationAlgorithm : +computeWeightCorrection(vector~double~ batchOutputs, vector~double~ batchTargets) double
+OtherOptimizationAlgorithm : +computeWeightCorrection(vector~double~ batchOutputs, vector~double~ batchTargets) double
 ```
+```mermaid
+classDiagram
+class Batch
+Batch: +vector~double~ inputs
+Batch: +vector~double~ outputs
+Batch: +vector~double~ targets
 
+class Episode
+Episode: +vector~double~ state
+Episode: +vector~double~ nextState
+Episode: +double reward
+Episode: +int actionId
+Episode: +bool isEndOfExperience
+```
 ## References
 - http://neuralnetworksanddeeplearning.com/
 - https://www.analyticsvidhya.com/blog/2020/04/feature-scaling-machine-learning-normalization-standardization/
