@@ -14,11 +14,20 @@
   - [ReLU](https://github.com/alejandrofsevilla/neural_networks_cheat_sheet?tab=readme-ov-file#relu)
   - [Leaky ReLU](https://github.com/alejandrofsevilla/neural_networks_cheat_sheet?tab=readme-ov-file#leaky-relu)
   - [Sigmoid](https://github.com/alejandrofsevilla/neural_networks_cheat_sheet?tab=readme-ov-file#sigmoid)
-  - [Tanh (Hyperbolic Tangent)](https://github.com/alejandrofsevilla/neural_networks_cheat_sheet?tab=readme-ov-file#tanh-(hyperbolic-tangent))
+  - [Tanh](https://github.com/alejandrofsevilla/neural_networks_cheat_sheet?tab=readme-ov-file#tanh)
 - [Cost Functions](https://github.com/alejandrofsevilla/neural_networks_cheat_sheet?tab=readme-ov-file#cost-functions)
+  - [Quadratic Cost](https://github.com/alejandrofsevilla/neural_networks_cheat_sheet?tab=readme-ov-file#quadratic-cost)
+  - [Cross Entropy Cost](https://github.com/alejandrofsevilla/neural_networks_cheat_sheet?tab=readme-ov-file#cross-entropy-cost)
 - [Normalization](https://github.com/alejandrofsevilla/neural_networks_cheat_sheet?tab=readme-ov-file#normalization)
 - [Regularization](https://github.com/alejandrofsevilla/neural_networks_cheat_sheet?tab=readme-ov-file#regularization)
+  - [L1](https://github.com/alejandrofsevilla/neural_networks_cheat_sheet?tab=readme-ov-file#l1)
+  - [L2](https://github.com/alejandrofsevilla/neural_networks_cheat_sheet?tab=readme-ov-file#l2)
 - [Optimization Algorithms](https://github.com/alejandrofsevilla/neural_networks_cheat_sheet?tab=readme-ov-file#optimization-algorithms)
+  - [Gradient Descend](https://github.com/alejandrofsevilla/neural_networks_cheat_sheet?tab=readme-ov-file#gradient-descend)
+  - [Stochastic Gradient Descend](https://github.com/alejandrofsevilla/neural_networks_cheat_sheet?tab=readme-ov-file#stochastic-gradient-descend)
+  - [Adaptive Moment Estimation](https://github.com/alejandrofsevilla/neural_networks_cheat_sheet?tab=readme-ov-file#adaptive-moment-estimation)
+- [Neural Network Implementation](https://github.com/alejandrofsevilla/neural_networks_cheat_sheet?tab=readme-ov-file#neural-network-implementation)
+- [Q-Learning](https://github.com/alejandrofsevilla/neural_networks_cheat_sheet?tab=readme-ov-file#q-learning)
 - [References](https://github.com/alejandrofsevilla/neural_networks_cheat_sheet?tab=readme-ov-file#references)
 
 ## List of Symbols
@@ -165,7 +174,7 @@ $$ \large
 \dot A \big(z\big) = A(z) \cdot (1-A(z))
 $$
 
-### Tanh (Hyperbolic Tangent)
+### Tanh
 <p align="center">
   <img src="https://github.com/user-attachments/assets/483cf2be-54d2-4a0f-9ca7-45d7252789b5" alt="drawing" width="500"/>
 </p>
@@ -248,7 +257,7 @@ $$ \large
 O \big( \frac{\partial C}{\partial {w_{n_{l-1}n_l}}} \big) = \frac{\partial C}{\partial {w_{n_{l-1}n_l}}}
 $$
 
-### ADAM (Adaptive Moment Estimation)
+### Adaptive Moment Estimation
 Network parameters are updated after every training batch $S$, with an adapted value of the cost function derivatives.
 
 $$ \large
@@ -277,7 +286,7 @@ $$ \large \beta_1 = 0.9 $$
 
 $$ \large \beta_2 = 0.999 $$
 
-## Possible Implementation
+## Neural Network Implementation
 ```mermaid
 %%{init: {"class": {"hideEmptyMembersBox": true}}}%%
 classDiagram
