@@ -327,6 +327,15 @@ GradientDescendOptimizationAlgorithm : +computeWeightCorrection(vector~double~ b
 AdamOptimizationAlgorithm : +computeWeightCorrection(vector~double~ batchOutputs, vector~double~ batchTargets) double
 Etc : ...
 ```
+```mermaid
+classDiagram
+class Neuron
+Neuron: +vector~double~ weights
+Neuron: +shared_ptr~ActivationFunction~ activationFunction
+
+class Layer
+Layer: +vector~Neuron~ neurons
+```
 
 ## Q-Learning.
 Given a model state $x$ and a set of possible actions at that state, a neural network computes the quality values $Q_a$ for each action $a$ so that the agent can take the best possible action at that particular state, which will be given by the highest $Q_a$. The problem consist in finding how to train such neural network as the target ${Q_a}^\*$ values to train the network against, are in principle unknown. An iterative process is done in which a prediction for the target quality values ${Q_a}^\*$ is made and periodically updated through experience.
