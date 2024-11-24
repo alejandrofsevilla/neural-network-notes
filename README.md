@@ -342,15 +342,15 @@ TrainingSample <.. NeuronTrainingData
 ```
 
 ## Q-Learning.
-Given a model state $x$ and a set of possible actions at that state, a neural network computes the quality values $Q_a$ for each action $a$ so that the agent can take the best possible action at that particular state, which will be given by the highest $Q_a$. The problem consist in finding how to train such neural network as the target ${Q_a}^\*$ values to train the network against, are in principle unknown. An iterative process is done in which a prediction for the target quality values ${Q_a}^\*$ is made and periodically updated through experience.
+Given a model state $x$ and a set of possible actions at that state, a neural network computes the quality values $Q_a$ for each action $a$ so that the agent can take the best possible action at that particular state, which will be given by the highest $Q_a$. The problem consist in finding how to train such neural network as the target ${Q_a}^\*$ values to train the network against, are in principle unknown. An iterative process is conducted in which a prediction for the target quality values ${Q_a}^\*$ is made and periodically updated through experience.
 
 Starting with the Bellman equation:
 
 $$ \large
-Q(x,a)=R(x,a)+ \gamma \cdot max {Q(x', a')}
+Q(x,a)=R(x,a)+ \gamma \cdot max {Q(x', a)}
 $$
 
-Which states that the $Q$ value of taking an action $a$ at state $x$, is equal to the immediate reward of taking the action, $R(x,a)$, plus the total $Q$ value obtained by chosing the best possible action thereafter. The discount factor $\gamma$ is added to the equation to stablish a priority between inmediate or later rewards.
+Which states that the $Q$ value of taking an action $a$ at state $x$, is equal to the immediate reward of taking the action, $R(x,a)$, plus the total $Q$ value obtained by selecting the best possible action thereafter until termination. The discount factor $\gamma$ is added to the equation to stablish a priority between inmediate or later rewards.
 
 Everytime the model is run, each step or transition is stored as part of the experience, or replay buffer:
 
