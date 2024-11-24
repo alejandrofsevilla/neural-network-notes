@@ -290,74 +290,55 @@ $$ \large \beta_2 = 0.999 $$
 ```mermaid
 %%{init: {"class": {"hideEmptyMembersBox": true}}}%%
 classDiagram
+class Network
+Network: +computeOutputs(List~double~) List~double~
+Network: +train(TrainingBatch, CostFunction, OptimizationAlgorithm)
+Network "1..*" *-- "1" Layer
+Network ..> TrainingBatch
+Network ..> CostFunction
+Network ..> OptimizationAlgorithm
+
+Layer: +computeOutputs(List~double~) List~double~
+Layer: +computeOutputDerivatives(List~double~) List~double~
+Layer "1..*" *-- "1" Neuron 
+Neuron: +vector~double~ weights
+Neuron: +computeOutput(List~double~) double
+Neuron: +computeOutputDerivative(List~double~) double
+Neuron "1" o-- "*" ActivationFunction
+
 ActivationFunction <|-- StepActivationFunction
 ActivationFunction <|-- LinearActivationFunction
-ActivationFunction <|-- Etc
-<<Interface>> ActivationFunction
-ActivationFunction : +virtual computeOutput(double intermediateQuantity) double
-ActivationFunction : +virtual computeOutputDerivative(double intermediateQuantity) double
-StepActivationFunction : +computeOutput(double intermediateQuantity) double
-StepActivationFunction : +computeOutputDerivative(double intermediateQuantity) double
-LinearActivationFunction : +computeOutput(double intermediateQuantity) double
-LinearActivationFunction : +computeOutputDerivative(double intermediateQuantity) double
-Etc :  ...
-```
-```mermaid
-classDiagram
+ActivationFunction <|-- SigmoidActivationFunction
+ActivationFunction <|-- TanhActivationFunction
+ActivationFunction <|-- ReluActivationFunction
+ActivationFunction <|-- LeakyReluActivationFunction
+ActivationFunction : +computeOutput(double) double*
+ActivationFunction : +computeOutputDerivative(double) double*
+
 CostFunction <|-- QuadraticCostFunction
 CostFunction <|-- EntropyCostFunction
-CostFunction <|-- Etc
-<<Interface>> CostFunction
-CostFunction : +virtual computeCost(double output, double target) double
-CostFunction : +virtual computeCostDerivative(double output, double target) double
-EntropyCostFunction : +computeCost(double output, double target) double
-EntropyCostFunction : +computeCostDerivative(double output, double target) double
-QuadraticCostFunction : +computeCost(double output, double target) double
-QuadraticCostFunction : +computeCostDerivative(double output, double target) double
-Etc : ...
-```
-```mermaid
-classDiagram
+CostFunction : +computeCost(double, double) double*
+CostFunction : +computeCostDerivative(double, double) double*
+
 OptimizationAlgorithm <|-- GradientDescendOptimizationAlgorithm
+OptimizationAlgorithm <|-- StochasticGradientDescendOptimizationAlgorithm
 OptimizationAlgorithm <|-- AdamOptimizationAlgorithm
-OptimizationAlgorithm <|-- Etc
-<<Interface>> OptimizationAlgorithm
-OptimizationAlgorithm : +virtual computeWeightCorrection(vector~double~ batchOutputs, vector~double~ batchTargets) double
-GradientDescendOptimizationAlgorithm : +computeWeightCorrection(vector~double~ batchOutputs, vector~double~ batchTargets) double
-AdamOptimizationAlgorithm : +computeWeightCorrection(vector~double~ batchOutputs, vector~double~ batchTargets) double
-Etc : ...
-```
-```mermaid
-classDiagram
+OptimizationAlgorithm : +computeWeightCorrection(NeuronTrainingData, CostFunction) double*
+CostFunction <.. OptimizationAlgorithm
+OptimizationAlgorithm ..> NeuronTrainingData
+
+NeuronTrainingData "1" --> "*" Neuron
+NeuronTrainingData: +List~double~ outputs
+NeuronTrainingData: +List~double~ outputDerivatives
+NeuronTrainingData: +List~double~ targets
+
 class TrainingSample
-TrainingSample: +vector~double~ inputs
-TrainingSample: +vector~double~ targets
+TrainingSample: +List~double~ inputs
+TrainingSample: +List~double~ targets
 
 class TrainingBatch
-TrainingBatch: +vector~TrainingSample~ samples
-
-class TrainingNeuronData
-TrainingNeuronData: +vector~double~ outputs
-TrainingNeuronData: +vector~double~ outputDerivatives
-TrainingNeuronData: +vector~double~ targets
-```
-```mermaid
-classDiagram
-class Neuron
-Neuron: +vector~double~ weights
-Neuron: +shared_ptr~ActivationFunction~ activationFunction
-Neuron: +computeOutput(vector~double~ inputs) double
-Neuron: +computeOutputDerivative(vector~double~ inputs) double
-
-class Layer
-Layer: +vector~Neuron~ neurons
-Layer: +computeOutputs(vector~double~ inputs) vector~double~
-Layer: +computeOutputDerivatives(vector~double~ inputs) vector~double~
-
-class Network
-Network: +computeOutputs(vector~double~ inputs) vector~double~
-Network: +train(const TrainingBatch& trainingBatch, const& CostFunction costFnc, const OptimizationAlgorithm& optimizationAlg)
-Network: -vector~Layer~ m_layers
+TrainingBatch "1..*" *-- "1" TrainingSample
+TrainingSample <.. NeuronTrainingData
 ```
 
 ## Q-Learning.
