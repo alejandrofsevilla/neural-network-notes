@@ -290,13 +290,13 @@ $$ \large \beta_2 = 0.999 $$
 ```mermaid
 %%{init: {"class": {"hideEmptyMembersBox": true}}}%%
 classDiagram
-class Network
-Network: +computeOutputs(List~double~) List~double~
-Network: +train(TrainingBatch, CostFunction, OptimizationAlgorithm)
-Network "1..*" *-- "1" Layer
-Network ..> TrainingBatch
-Network ..> CostFunction
-Network ..> OptimizationAlgorithm
+class NeuralNetwork
+NeuralNetwork: +computeOutputs(List~double~) List~double~
+NeuralNetwork: +train(TrainingBatch, CostFunction, OptimizationAlgorithm)
+NeuralNetwork "1..*" *-- "1" Layer
+NeuralNetwork ..> TrainingBatch
+NeuralNetwork ..> CostFunction
+NeuralNetwork ..> OptimizationAlgorithm
 
 Layer: +computeOutputs(List~double~) List~double~
 Layer: +computeOutputDerivatives(List~double~) List~double~
