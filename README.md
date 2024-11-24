@@ -346,9 +346,13 @@ classDiagram
 class Neuron
 Neuron: +vector~double~ weights
 Neuron: +shared_ptr~ActivationFunction~ activationFunction
+Neuron: +computeOutput(vector~double~ inputs) double
+Neuron: +computeOutputDerivative(vector~double~ inputs) double
 
 class Layer
 Layer: +vector~Neuron~ neurons
+Layer: +computeOutputs(vector~double~ inputs) vector~double~
+Layer: +computeOutputDerivatives(vector~double~ inputs) vector~double~
 
 class Network
 Network: +computeOutputs(vector~double~ inputs) vector~double~
