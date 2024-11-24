@@ -334,9 +334,9 @@ Neuron: +vector~double~ weights
 Neuron: +shared_ptr~ActivationFunction~ activationFunction
 
 class NeuronBatchData
-NeuronBatchData: +vector~double~ batchOutputs
-NeuronBatchData: +vector~double~ batchOutputDerivatives
-NeuronBatchData: +vector~double~ batchTargets
+NeuronBatchData: +vector~double~ outputs
+NeuronBatchData: +vector~double~ outputDerivatives
+NeuronBatchData: +vector~double~ targets
 
 class Layer
 Layer: +vector~Neuron~ neurons
