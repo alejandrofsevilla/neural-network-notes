@@ -329,17 +329,31 @@ Etc : ...
 ```
 ```mermaid
 classDiagram
+class TrainingSample
+TrainingSample: +vector~double~ inputs
+TrainingSample: +vector~double~ targets
+
+class TrainingBatch
+TrainingBatch: +vector~TrainingSample~ samples
+
+class TrainingNeuronData
+TrainingNeuronData: +vector~double~ outputs
+TrainingNeuronData: +vector~double~ outputDerivatives
+TrainingNeuronData: +vector~double~ targets
+```
+```mermaid
+classDiagram
 class Neuron
 Neuron: +vector~double~ weights
 Neuron: +shared_ptr~ActivationFunction~ activationFunction
 
-class NeuronBatchData
-NeuronBatchData: +vector~double~ outputs
-NeuronBatchData: +vector~double~ outputDerivatives
-NeuronBatchData: +vector~double~ targets
-
 class Layer
 Layer: +vector~Neuron~ neurons
+
+class Network
+Network: +computeOutputs(vector~double~ inputs) vector~double~
+Network: +train(const TrainingBatch& trainingBatch, const& CostFunction costFnc, const OptimizationAlgorithm& optimizationAlg)
+Network: -vector~Layer~ m_layers
 ```
 
 ## Q-Learning.
