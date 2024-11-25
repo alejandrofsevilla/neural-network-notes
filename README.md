@@ -334,7 +334,6 @@ NeuronTrainingData --> Neuron
 NeuronTrainingData: +List~double~ outputs
 NeuronTrainingData: +List~double~ outputDerivatives
 NeuronTrainingData: +List~double~ targets
-
 class TrainingSample
 TrainingSample: +List~double~ inputs
 TrainingSample: +List~double~ targets
@@ -365,13 +364,14 @@ Transition: +List~double~ state
 Transition: +optional~List~double~~ nextState
 Transition: +double reward
 Transition: +~T~ action
+note for TrainingSample "inputs = state \ntargets =  actionQValues"
 TrainingSample ..> Transition
 TrainingSample: +List~double~ inputs
 TrainingSample: +List~double~ targets
 TrainingBatch "1..*" *.. TrainingSample
 TrainingSample ..> NeuralNetwork
 NeuralNetwork ..> Transition
-NeuralNetwork: ...
+NeuralNetwork <.. Transition  
 
 class QLearningModel
 style QLearningModel stroke: stroke-width:2px,stroke-dasharray: 5 5
