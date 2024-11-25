@@ -363,7 +363,7 @@ Experience "1..*" *.. Transition
 Transition: +List~double~ state
 Transition: +optional~List~double~~ nextState
 Transition: +double reward
-Transition: +~T~ action
+Transition: +~A~ action
 note for TrainingSample "inputs = state \ntargets =  actionQValues"
 TrainingSample ..> Transition
 TrainingSample: +List~double~ inputs
