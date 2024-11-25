@@ -307,6 +307,7 @@ Neuron: +computeOutputDerivative(List~double~) double
 Neuron o-- ActivationFunction
 
 ActivationFunction <|-- StepActivationFunction
+style ActivationFunction stroke: stroke-width:2px,stroke-dasharray: 5 5
 ActivationFunction <|-- LinearActivationFunction
 ActivationFunction <|-- SigmoidActivationFunction
 ActivationFunction <|-- TanhActivationFunction
@@ -316,11 +317,13 @@ ActivationFunction : +computeOutput(double) double*
 ActivationFunction : +computeOutputDerivative(double) double*
 
 CostFunction <|-- QuadraticCostFunction
+style CostFunction stroke: stroke-width:2px,stroke-dasharray: 5 5
 CostFunction <|-- EntropyCostFunction
 CostFunction : +computeCost(double, double) double*
 CostFunction : +computeCostDerivative(double, double) double*
 
 OptimizationAlgorithm <|-- GradientDescendOptimizationAlgorithm
+style OptimizationAlgorithm stroke: stroke-width:2px,stroke-dasharray: 5 5
 OptimizationAlgorithm <|-- StochasticGradientDescendOptimizationAlgorithm
 OptimizationAlgorithm <|-- AdamOptimizationAlgorithm
 OptimizationAlgorithm : +computeWeightCorrection(NeuronTrainingData, CostFunction) double*
@@ -357,10 +360,24 @@ Everytime the model is run, each step or transition is stored as part of the exp
 ```mermaid
 classDiagram
 class Transition
+Experience "1..*" *.. Transition
 Transition: +List~double~ state
 Transition: +optional~List~double~~ nextState
 Transition: +double reward
 Transition: +~T~ action
+TrainingSample ..> Transition
+TrainingSample: +List~double~ inputs
+TrainingSample: +List~double~ targets
+TrainingBatch "1..*" *.. TrainingSample
+TrainingSample ..> NeuralNetwork
+NeuralNetwork ..> Transition
+NeuralNetwork: ...
+
+class QLearningModel
+style QLearningModel stroke: stroke-width:2px,stroke-dasharray: 5 5
+QLearningModel: +nextState(List~double~, ~A~) List~double~*
+QLearningModel: +reward(List~double~, ~A~) double*
+Transition ..> QLearningModel
 ```
 
 After every transition, we use our network $[N]$ to select each action, $a = a(max Q(x, a))$, where $Q_a=[N]x$. Then, we may use the same network (DQN) or a second network (DDQN-double DQN), to calculate the new $Q_a$ through the Bellman equation, giving us an updated target value to train the network. In DDQN the network used to run the model is trained after every transition, using the buffer replay states and corresponding target $Q$ values, while the network used in the Bellman equation is only trained after a few number of transitions. 
