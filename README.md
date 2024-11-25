@@ -293,18 +293,18 @@ classDiagram
 class NeuralNetwork
 NeuralNetwork: +computeOutputs(List~double~) List~double~
 NeuralNetwork: +train(TrainingBatch, CostFunction, OptimizationAlgorithm)
-NeuralNetwork "1..*" *-- "1" Layer
+NeuralNetwork "1..*" *-- Layer
 NeuralNetwork ..> TrainingBatch
 NeuralNetwork ..> CostFunction
 NeuralNetwork ..> OptimizationAlgorithm
 
 Layer: +computeOutputs(List~double~) List~double~
 Layer: +computeOutputDerivatives(List~double~) List~double~
-Layer "1..*" *-- "1" Neuron 
+Layer "1..*" *-- Neuron 
 Neuron: +vector~double~ weights
 Neuron: +computeOutput(List~double~) double
 Neuron: +computeOutputDerivative(List~double~) double
-Neuron "1" o-- "*" ActivationFunction
+Neuron o-- ActivationFunction
 
 ActivationFunction <|-- StepActivationFunction
 ActivationFunction <|-- LinearActivationFunction
@@ -327,7 +327,7 @@ OptimizationAlgorithm : +computeWeightCorrection(NeuronTrainingData, CostFunctio
 CostFunction <.. OptimizationAlgorithm
 OptimizationAlgorithm ..> NeuronTrainingData
 
-NeuronTrainingData "1" --> "*" Neuron
+NeuronTrainingData --> Neuron
 NeuronTrainingData: +List~double~ outputs
 NeuronTrainingData: +List~double~ outputDerivatives
 NeuronTrainingData: +List~double~ targets
@@ -337,7 +337,7 @@ TrainingSample: +List~double~ inputs
 TrainingSample: +List~double~ targets
 
 class TrainingBatch
-TrainingBatch "1..*" *-- "1" TrainingSample
+TrainingBatch "1..*" *-- TrainingSample
 TrainingSample <.. NeuronTrainingData
 ```
 
