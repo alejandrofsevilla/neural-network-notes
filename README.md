@@ -370,8 +370,7 @@ TrainingSample: +List~double~ inputs
 TrainingSample: +List~double~ targets
 TrainingBatch "1..*" *.. TrainingSample
 TrainingSample ..> NeuralNetwork
-NeuralNetwork ..> Transition
-NeuralNetwork <.. Transition  
+NeuralNetwork <..> Transition
 
 class QLearningModel
 style QLearningModel stroke: stroke-width:2px,stroke-dasharray: 5 5
