@@ -344,15 +344,18 @@ TrainingSample <.. NeuronTrainingData
 ```
 
 ## Q-Learning
+
 Given a model state $s$ and a set of possible actions at that state $a_i$, a neural network computes the quality values $Q_a$ for each action so that the agent can take the best possible action at that particular state, which will be given by the highest $Q_a$. The problem consist in finding how to train such neural network as the target $\hat {Q_a}$ values to train the network against, are in principle unknown. An iterative process is conducted in which a prediction for the target Q values $\hat {Q_a}$ are periodically updated through experience. Starting with the Bellman equation:
 
 $$ \large
-Q(s,a)=R(s,a)+ \gamma \cdot max {Q(s', a)}
+Q(s,a)=R(s,a)+ \gamma \cdot {Q(s', a)_{max}}
 $$
 
-Which states that the $Q$ value of taking an action $a$ at state $s$, is equal to the immediate reward of taking the action, $R(s,a)$, plus the total reward obtained by selecting the best possible action thereafter until termination. A neural network $N$ is used to make a prediction of the second term of the equation, where a discount factor $\gamma$ is also added to stablish a priority between inmediate or later rewards. 
+Which states that the $Q$ value of taking an action $a$ at state $s$, is equal to the immediate reward of taking the action, $R(s,a)$, plus the total reward obtained by selecting the best possible action thereafter until termination, {Q(s', a)_{max}}. A discount factor $\gamma$ is added the equation to indicate a priority between inmediate or later rewards. 
 
-At the begining of an epoch, the model starts at the initial state, $s_o$, and takes one transition at a time. An exploration factor $epsilon$ is used to stablish the proportion of transitions in which the model will used the trained network (explotation) to select an action, $a = a(N, s) ~ a(max Q(s, a))$, and transitions where the action will be randomly selected (exploration). Each transition is stored as part of the experience, typically a circular buffer. After every transition, the same neural network (DQN) or a second neural network (DDQN), fixed and only updated every few epochs, is used to update the value of target Q value fot that state and action, $\hat {Q_a} = R(s,a)+ \gamma \cdot max {Q(N, s')}$.
+In DQN (Deep Quality Learning), a neural network $N$ is used to predict the optimal action at a given state, and the same a neural network - or different neural network (DDQN) fixed and only updated every few iterations - is used to make a prediction of the second term of the equation, obtaining a prediction of the target to train itself against.
+
+At the begining of an epoch, the model starts at the initial state, $s_o$, and takes one transition at a time. An exploration factor $epsilon$ is used to indicate the proportion of transitions in which the model will used the trained network (explotation) to select an action, $a = a(N, s) \textasciitilde a(Q(s,a)_{max})$, and transitions where the action will be randomly selected (exploration). Each transition is stored as part of the experience, typically a circular buffer. After every transition, the same neural network (DQN) or a second neural network (DDQN), is used to update the value of target Q value fot that state and action, $\hat {Q_a} = R(s,a)+ \gamma \cdot max {Q(N, s')}$. The process is then repeated until termination before starting the next epoch.
 
 ### Q-Learning Model Interface Implementation
 ```mermaid
