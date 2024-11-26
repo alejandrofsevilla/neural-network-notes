@@ -28,6 +28,7 @@
   - [Adaptive Moment Estimation](https://github.com/alejandrofsevilla/neural_networks_cheat_sheet?tab=readme-ov-file#adaptive-moment-estimation)
 - [Neural Network Implementation](https://github.com/alejandrofsevilla/neural_networks_cheat_sheet?tab=readme-ov-file#neural-network-implementation)
 - [Q-Learning](https://github.com/alejandrofsevilla/neural_networks_cheat_sheet?tab=readme-ov-file#q-learning)
+  - [Q-Learning Model Interface Implementation](https://github.com/alejandrofsevilla/neural_networks_cheat_sheet?tab=readme-ov-file#q-learning-model-interface-implementation)
 - [References](https://github.com/alejandrofsevilla/neural_networks_cheat_sheet?tab=readme-ov-file#references)
 
 ## List of Symbols
