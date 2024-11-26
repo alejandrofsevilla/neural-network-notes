@@ -366,7 +366,7 @@ Transition: +List~double~ state
 Transition: +optional~List~double~~ nextState
 Transition: +double reward
 Transition: +~A~ action
-note for TrainingSample "inputs = state \ntargets =  actionQValues"
+note for TrainingSample "inputs = s \ntargets =  Q_a"
 TrainingSample ..> Transition
 TrainingSample: +List~double~ inputs
 TrainingSample: +List~double~ targets
