@@ -383,13 +383,16 @@ Transition: +List~double~ state
 Transition: +optional~List~double~~ nextState
 Transition: +double reward
 Transition: +~A~ action
-note for TrainingSample "inputs = s \ntargets =  Q(s,a)"
+note for TrainingSample "inputs = state \ntargets =  Q(state, action)"
 TrainingSample ..> Transition
 TrainingSample: +List~double~ inputs
 TrainingSample: +List~double~ targets
 TrainingBatch "1..*" *.. TrainingSample
 TrainingSample ..> NeuralNetwork
 NeuralNetwork <..> Transition
+NeuralNetwork: +computeOutputs(List~double~) List~double~
+NeuralNetwork: +train(TrainingBatch, CostFunction, OptimizationAlgorithm)
+note for NeuralNetwork "action = max(computeOutputs(state))"
 
 class QLearningModel
 style QLearningModel stroke: stroke-width:2px,stroke-dasharray: 5 5
