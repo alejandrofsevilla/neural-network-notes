@@ -379,20 +379,20 @@ The network is retrained, and the process is then repeated until termination bef
 classDiagram
 class Transition
 Experience "1..*" *.. Transition
+note for Transition "action = action(max(NeuralNetwork::computeOutputs(state))) \nnextState=QLearningModel::nextState(state, action)\nreward=QLearningModel::reward(state, action)"
 Transition: +List~double~ state
 Transition: +optional~List~double~~ nextState
 Transition: +double reward
 Transition: +~A~ action
-note for TrainingSample "inputs = state \ntargets =  Q(state, action)"
 TrainingSample ..> Transition
 TrainingSample: +List~double~ inputs
 TrainingSample: +List~double~ targets
 TrainingBatch "1..*" *.. TrainingSample
 TrainingSample ..> NeuralNetwork
+note for TrainingSample "inputs = state \ntargets[action] = reward + NeuralNetwork::computeOutputs(nextState)[action]"
 NeuralNetwork <..> Transition
 NeuralNetwork: +computeOutputs(List~double~) List~double~
 NeuralNetwork: +train(TrainingBatch, CostFunction, OptimizationAlgorithm)
-note for NeuralNetwork "action = max(computeOutputs(state))"
 
 class QLearningModel
 style QLearningModel stroke: stroke-width:2px,stroke-dasharray: 5 5
