@@ -63,8 +63,10 @@ y_{n_l} = A_{n_l}\big(z_{n_l}\big)
 $$
 
 ## Training Algorithm
+<p align="justify">
 In order to reduce the errors of the network, weights and biases are adjusted to minimize a given cost function $C$. This is done by an optimization algorithm $O$, that modifies the network parameters periodically after running a certain number of training samples.
 Weights and biases are modified depending on their influence in the cost function, measured by the derivatives ${\partial C}/{\partial {w_{n_{l-1}n_l}}}$ and ${\partial C}/{\partial {b_{n_l}}}$.
+</p>
 
 $$ \large
 \Delta w_{n_{l-1}n_l} = - α \cdot O\big(\frac {\partial C}{\partial {w_{n_{l-1}n_l}}}\big)
@@ -93,7 +95,9 @@ $$ \large
 $$
 
 ### Backpropagation
+<p align="justify">
 The terms $\dot C (y_{n_l} \hat y_{n_l})$ depend on the output target value for each neuron $\hat y_{n_l}$. However, a training data set only counts on the value of $\hat y_{n_l}$ for the last layer $l = L$. Instead, for all previous layers $l < L$, components $\dot C ( y_{n_l}, \hat y_{n_l})$ are computed as a weighted sum of the components previously calculated for the next layer $\dot C (y_{n_{l+1}}, \hat y_{n_{l+1}})$ :
+</p>
 
 $$ \large
 \dot C \big( y_{n_l}, \hat y_{n_l} \big) = \sum_{n_{l+1}}^{N_{l+1}} w_{n_{l}n_{l+1}} \cdot \dot C \big( y_{n_{l+1}}, \hat y_{n_{l+1}} \big) 
@@ -345,17 +349,29 @@ TrainingSample <.. NeuronTrainingData
 
 ## Q-Learning
 
-Given a model state $s$ and a set of possible actions at that state $a_i$, a neural network computes the quality values $Q_a$ for each action so that the agent can take the best possible action at that particular state, which will be given by the highest $Q_a$. The problem consist in finding how to train such neural network as the target $\hat {Q}_a(s)$ values to train the network against, are in principle unknown. An iterative process is followed in which a prediction of $\hat {Q}_a(s)$ is periodically updated through experience. Starting with the Bellman equation:
+<p align="justify">
+Given a model state $s$ and a set of possible actions at that state { $a_1$, $a_2$, ..., $a_n$ }, a neural network computes the quality values $Q_a$ for each action so that the best possible action will be given by the highest $Q_a$. The problem consists in finding how to train such neural network as the target $\hat {Q}_a(s)$ values to train the network against, are in principle unknown. An iterative process is followed in which a prediction of $\hat {Q}_a(s)$ is periodically updated through experience. 
+</p>
+
+Starting from the Bellman equation:
 
 $$ \large
 Q(s,a)=R(s,a)+ \gamma \cdot {Q(s', a)_{max}}
 $$
 
-Which states that the $Q$ value of taking an action $a$ at state $s$, is equal to the immediate reward of taking the action, $R(s,a)$, plus the total reward obtained by selecting the best possible action thereafter until termination, ${Q(s', a)_{max}}$. A discount factor $\gamma$ is added to the equation indicating a priority between inmediate or later rewards. 
+<p align="justify">
+Which states that the total $Q$ value of taking an action $a$ at state $s$, is equal to the immediate reward of taking the action, $R(s,a)$, plus the total reward obtained by taking the best possible action thereafter until termination, ${Q(s', a)_{max}}$. A discount factor $\gamma$ is added to the equation to control the priority between inmediate or later rewards. 
+</p>
 
-In DQN (Deep Quality Learning), a neural network $N$ is used to predict the optimal action at a given state, and the same a neural network - or different neural network (DDQN), fixed and only updated every few iterations - is used to make a prediction of the second term of the equation, obtaining a prediction of the targets $\hat {Q}_a$ to train $N$ against.
+<p align="justify">
+The adition from Machine Learning is that a neural network $N$ is used to make a prediction of the second term of the equation. At the begining of an epoch, the model starts at the initial state and takes one transition at a time. An exploration factor $\epsilon$ is used to control the proportion of transitions in which the model will use the trained network (explotation) to select an action, $a = a(N, s)$, and transitions in which the action will be randomly selected (exploration). Each transition is stored as part of the experience, typically in a circular buffer. After a transition, the same neural network (DQN) or a second neural network (DDQN) - updated only every few iterations - is used to update the network targets for that state and action:
+</p>
 
-At the begining of an epoch, the model starts at the initial state and takes one transition at a time. An exploration factor $\epsilon$ is used to indicate the proportion of transitions in which the model will use the trained network (explotation) to select an action, $a = a(N, s)$, and transitions in which the action will be randomly selected (exploration). Each transition is stored as part of the experience, typically in a circular buffer. After a transition, the same neural network (DQN) or a second neural network (DDQN), is used to update the Q target value for that state and action, $\hat {Q}(s,a) = R(s,a)+ \gamma \cdot {Q(N, s')_{max}}$. The process is then repeated until termination before starting the next epoch.
+$$ \large
+\hat {Q}(s,a) = R(s,a)+ \gamma \cdot Q(N, s')_{max}
+$$
+
+The network is retrained, and the process is then repeated until termination before starting the next epoch.
 
 ### Q-Learning Model Interface Implementation
 ```mermaid
