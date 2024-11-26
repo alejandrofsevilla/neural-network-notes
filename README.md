@@ -240,7 +240,7 @@ $$
 
 $$ \large
 \dot C_{n_l} \big(y, \hat y\big) = \dot C \big(y, \hat y\big) ± \lambda 
-$$
+$$+
 
 ## Optimization Algorithms
 ### Gradient Descend
@@ -344,18 +344,17 @@ TrainingSample <.. NeuronTrainingData
 ```
 
 ## Q-Learning
-Given a model state $x$ and a set of possible actions at that state, a neural network computes the quality values $Q_a$ for each action $a$ so that the agent can take the best possible action at that particular state, which will be given by the highest $Q_a$. The problem consist in finding how to train such neural network as the target ${Q_a}^\*$ values to train the network against, are in principle unknown. An iterative process is conducted in which a prediction for the target quality values ${Q_a}^\*$ is made and periodically updated through experience.
-
-Starting with the Bellman equation:
+Given a model state $s$ and a set of possible actions at that state $a_i$, a neural network computes the quality values $Q_a$ for each action so that the agent can take the best possible action at that particular state, which will be given by the highest $Q_a$. The problem consist in finding how to train such neural network as the target $\hat {Q_a}$ values to train the network against, are in principle unknown. An iterative process is conducted in which a prediction for the target Q values $\hat {Q_a}$ are periodically updated through experience. Starting with the Bellman equation:
 
 $$ \large
-Q(x,a)=R(x,a)+ \gamma \cdot max {Q(x', a)}
+Q(s,a)=R(s,a)+ \gamma \cdot max {Q(s', a)}
 $$
 
-Which states that the $Q$ value of taking an action $a$ at state $x$, is equal to the immediate reward of taking the action, $R(x,a)$, plus the total $Q$ value obtained by selecting the best possible action thereafter until termination. The discount factor $\gamma$ is added to the equation to stablish a priority between inmediate or later rewards.
+Which states that the $Q$ value of taking an action $a$ at state $s$, is equal to the immediate reward of taking the action, $R(s,a)$, plus the total reward obtained by selecting the best possible action thereafter until termination. A neural network $N$ is used to make a prediction of the second term of the equation, where a discount factor $\gamma$ is also added to stablish a priority between inmediate or later rewards. 
 
-Everytime the model is run, each step or transition is stored as part of the experience, or replay buffer:
+At the begining of an epoch, the model starts at the initial state, $s_o$, and takes one transition at a time. An exploration factor $epsilon$ is used to stablish the proportion of transitions in which the model will used the trained network (explotation) to select an action, $a = a(N, s) ~ a(max Q(s, a))$, and transitions where the action will be randomly selected (exploration). Each transition is stored as part of the experience, typically a circular buffer. After every transition, the same neural network (DQN) or a second neural network (DDQN), fixed and only updated every few epochs, is used to update the value of target Q value fot that state and action, $\hat {Q_a} = R(s,a)+ \gamma \cdot max {Q(N, s')$.
 
+### Q-Learning Model Interface Implementation
 ```mermaid
 classDiagram
 class Transition
@@ -378,8 +377,6 @@ QLearningModel: +nextState(List~double~, ~A~) List~double~*
 QLearningModel: +reward(List~double~, ~A~) double*
 Transition ..> QLearningModel
 ```
-
-After every transition, we use our network $[N]$ to select each action, $a = a(max Q(x, a))$, where $Q_a=[N]x$. Then, we may use the same network (DQN) or a second network (DDQN-double DQN), to calculate the new $Q_a$ through the Bellman equation, giving us an updated target value to train the network. In DDQN the network used to run the model is trained after every transition, using the buffer replay states and corresponding target $Q$ values, while the network used in the Bellman equation is only trained after a few number of transitions. 
 
 ## References
 - http://neuralnetworksanddeeplearning.com/
