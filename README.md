@@ -28,7 +28,7 @@
   - [Adaptive Moment Estimation](https://github.com/alejandrofsevilla/neural_networks_cheat_sheet?tab=readme-ov-file#adaptive-moment-estimation)
 - [Neural Network Implementation](https://github.com/alejandrofsevilla/neural_networks_cheat_sheet?tab=readme-ov-file#neural-network-implementation)
 - [Q-Learning](https://github.com/alejandrofsevilla/neural_networks_cheat_sheet?tab=readme-ov-file#q-learning)
-  - [Q-Learning Model Interface Implementation](https://github.com/alejandrofsevilla/neural_networks_cheat_sheet?tab=readme-ov-file#q-learning-model-interface-implementation)
+  - [Q-Learning Algorithm Implementation](https://github.com/alejandrofsevilla/neural_networks_cheat_sheet?tab=readme-ov-file#q-learning-algorithm-implementation)
 - [References](https://github.com/alejandrofsevilla/neural_networks_cheat_sheet?tab=readme-ov-file#references)
 
 ## List of Symbols
@@ -374,7 +374,7 @@ $$
 
 The network is retrained, and the process is then repeated until termination before starting the next epoch.
 
-### Q-Learning Model Interface Implementation
+### Q-Learning Algorithm Implementation
 ```mermaid
 classDiagram
 class Transition
