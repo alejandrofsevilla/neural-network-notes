@@ -398,7 +398,7 @@ class QLearningModel
 style QLearningModel stroke: stroke-width:2px,stroke-dasharray: 5 5
 QLearningModel: +nextState(List~double~, ~A~) List~double~*
 QLearningModel: +reward(List~double~, ~A~) double*
-QLearningModel: +train(List~double~ initState, NeuralNetwork&&)
+QLearningModel: +train(List~double~ initState, NeuralNetwork)
 Transition ..> QLearningModel
 ```
 
