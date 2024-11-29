@@ -209,7 +209,7 @@ $$ \large
 $$
 
 ## Normalization
-Normalization is the process of adimensionalizing the input layer, which address a problem known as Internal Covariate Shift.
+Normalization is the process of adimensionalizing the input layer, bringing all parameters to the same scale. Normalization addresses a problem known as Internal Covariate Shift and helps training to converge more quicly.
 
 $$ \large
  \bar {x} = \frac{x-\mu}{\sqrt{{\sigma}^2+\epsilon}}
@@ -245,7 +245,7 @@ $$
 
 $$ \large
 \dot C_{n_l} \big(y, \hat y\big) = \dot C \big(y, \hat y\big) ± \lambda 
-$$+
+$$
 
 ## Optimization Algorithms
 ### Gradient Descend
