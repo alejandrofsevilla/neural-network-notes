@@ -351,7 +351,7 @@ TrainingSample <.. NeuronTrainingData
 ## Q-Learning
 
 <p align="justify">
-Given a model state $s$ and a set of possible actions at that state { $a_1$, $a_2$, ..., $a_n$ }, a neural network computes the quality values $Q_a$ for each action so that the best possible action will be given by the highest $Q_a$. The problem consists in finding how to train such neural network as the target $\hat {Q}_a(s)$ values to train the network against, are in principle unknown. An iterative process is followed in which a prediction of $\hat {Q}_a(s)$ is periodically updated through experience. 
+Given a model state $s$ and a set of possible actions at that state { $a_1$, $a_2$, ..., $a_n$ }, a neural network computes the quality values $Q_a$ for each action so that the best possible action will be given by the highest $Q_a$. The problem consists in finding how to train such neural network as the target $\hat values {Q}_a(s)$ to train the network against, are in principle unknown. An iterative process is followed in which a prediction of $\hat {Q}_a(s)$ is periodically updated through experience. 
 </p>
 
 Starting from the Bellman equation:
@@ -365,7 +365,7 @@ Which states that the total $Q$ value of taking an action $a$ at state $s$, is e
 </p>
 
 <p align="justify">
-The adition from Machine Learning is that a neural network $N$ is used to make a prediction of the second term of the equation. At the begining of an epoch, the model starts at the initial state and takes one transition at a time. An exploration factor $\epsilon$ is used to control the proportion of transitions in which the model will use the trained network (explotation) to select an action, $a = a(N, s)$, and transitions in which the action will be randomly selected (exploration). Each transition is stored as part of the experience, typically in a circular buffer. After a transition, the same neural network (DQN) or a second neural network (DDQN) - updated only every few iterations - is used to update the network targets for that state and action:
+The adition from Machine Learning is that a neural network $N$ is used to make a prediction of the second term of the equation. At the begining of an epoch, the model starts at the initial state and takes one transition at a time. An exploration factor $\epsilon$ is added to control the proportion of transitions in which the model will use the trained network to select an action (explotation) $a = a(N, s)$ and transitions in which the action will be randomly selected (exploration). Each transition is stored as part of the experience, typically in a circular buffer. After a transition, the same neural network (DQN) or a second neural network (DDQN) - updated only every few iterations - is used to update the network targets for that state and action:
 </p>
 
 $$ \large
