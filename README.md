@@ -351,7 +351,7 @@ TrainingSample <.. NeuronTrainingData
 ## Q-Learning
 
 <p align="justify">
-Given a model state $s$ and a set of possible actions at that state { $a_1$, $a_2$, ..., $a_n$ }, a neural network computes the quality values $Q_a$ for each action so that the best possible action will be given by the highest $Q_a$. The problem consists in finding how to train such neural network as the target $\hat values {Q}_a(s)$ to train the network against, are in principle unknown. An iterative process is followed in which a prediction of $\hat {Q}_a(s)$ is periodically updated through experience. 
+Given a model state $s$ and a set of possible actions at that state { $a_1$, $a_2$, ..., $a_n$ }, a neural network computes the quality values $Q_a$ for each action so that the best possible action will be given by the highest $Q_a$. The problem consists in finding how to train such neural network as the target values $\hat {Q}_a(s)$ to train the network against, are in principle unknown. An iterative process is followed in which a prediction of $\hat {Q}_a(s)$ is periodically updated through experience. 
 </p>
 
 Starting from the Bellman equation:
